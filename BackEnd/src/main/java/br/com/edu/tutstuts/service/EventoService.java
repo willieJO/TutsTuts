@@ -20,5 +20,8 @@ public class EventoService {
     public List<Evento> ObterEventos() {
     	return _EventoRepository.findAll();
     }
+    public List<Evento> BuscaEventosPeloNome(String pesquisa) {
+    	return _EventoRepository.BuscaEventosPeloNome(pesquisa);
+    }
     
 }

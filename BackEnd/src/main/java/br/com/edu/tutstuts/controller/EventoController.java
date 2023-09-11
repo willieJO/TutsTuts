@@ -8,14 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.edu.tutstuts.model.Evento;
-import br.com.edu.tutstuts.model.UsuarioEmpresa;
 import br.com.edu.tutstuts.service.EventoService;
 
-@Controller
+@RestController
 @RequestMapping("/Evento")
-
 public class EventoController {
     @Autowired
     private EventoService _EventoService;
@@ -26,6 +25,7 @@ public class EventoController {
 	}
      @GetMapping("ObterEventos")
     private  List<Evento> ObterEventos() {
+    	 List<Evento> a = _EventoService.ObterEventos();
 		return _EventoService.ObterEventos();
 	}
 }

@@ -23,7 +23,7 @@ ADD FOREIGN KEY (id) REFERENCES usuario(id);
 ALTER TABLE usuario_empresa
 ADD FOREIGN KEY (id) REFERENCES usuario(id);
 
-CREATE TABLE Evento (
+CREATE TABLE evento (
    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     `nome` varchar(250),
 	`descricao` varchar(250),
@@ -35,10 +35,10 @@ CREATE TABLE Evento (
    `categoria` VARCHAR(25)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE Evento
+ALTER TABLE evento
 ADD FOREIGN KEY (cnpj_empresa) REFERENCES usuario(id);
 
-CREATE TABLE Mensagens (
+CREATE TABLE mensagens (
    `id`  INT PRIMARY KEY AUTO_INCREMENT,
    `data` date DEFAULT NULL,
    `mensagem` varchar(250),
@@ -46,7 +46,6 @@ CREATE TABLE Mensagens (
    `id_usuario_destino` INT(11)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE Mensagens
+ALTER TABLE mensagens
 ADD FOREIGN KEY (id_usuario_origem) REFERENCES usuario(id);
 
-ALTER TABLE Mensagens

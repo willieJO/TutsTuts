@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Evento")
+@Table(name = "evento")
 public class Evento {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

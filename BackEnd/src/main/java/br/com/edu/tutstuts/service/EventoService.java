@@ -3,6 +3,7 @@ package br.com.edu.tutstuts.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.edu.tutstuts.model.Evento;
 import br.com.edu.tutstuts.model.UsuarioEmpresa;
 import br.com.edu.tutstuts.repository.EventoRepository;
 

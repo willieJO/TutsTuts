@@ -1,9 +1,14 @@
 package br.com.edu.tutstuts.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+
+import br.com.edu.tutstuts.model.Usuario;
 import br.com.edu.tutstuts.model.UsuarioComum;
 import br.com.edu.tutstuts.model.UsuarioEmpresa;
 import br.com.edu.tutstuts.repository.UsuarioComumRepository;
@@ -21,6 +26,14 @@ public class UsuarioService {
 	
 	public void AdicionarUsuarioEmpresa(UsuarioEmpresa usuario) {
 		 _empresaRepository.save(usuario);
+	}
+
+	public Optional<Usuario> ObterUsuarioPorId(long id) {
+		return _usuarioRepository.findById(id);
+	}
+
+	public List<Usuario> ObterLista() {
+		return _usuarioRepository.findAll();
 	}
 	
 	public void AdicionarUsuario(UsuarioComum usuario) {

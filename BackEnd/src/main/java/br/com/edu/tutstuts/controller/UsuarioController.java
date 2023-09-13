@@ -33,12 +33,13 @@ public class UsuarioController {
 	
 	@GetMapping
 	public List<Usuario> list(){
-		return usuarioRepository.findAll();
+		return _service.ObterLista();
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Usuario> findById(@PathVariable Long id){
-		Optional<Usuario> usuario = usuarioRepository.findById(id);
+		
+		Optional<Usuario> usuario = _service.ObterUsuarioPorId(id);
 		if(usuario.isPresent()) {
 			return ResponseEntity.ok(usuario.get());
 		}

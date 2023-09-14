@@ -49,4 +49,3 @@ CREATE TABLE mensagens (
 ALTER TABLE mensagens
 ADD FOREIGN KEY (id_usuario_origem) REFERENCES usuario(id);
 
-ALTER TABLE Mensagens

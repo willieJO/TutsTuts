@@ -61,7 +61,7 @@ public class UsuarioController {
 		UsuarioEmpresa userSaved = _service.updateEmpresa(id, usuario);
 		return ResponseEntity.ok(userSaved);
 	}
-	
+		
 	@PutMapping("UsuarioComum/{id}")
 	public ResponseEntity<UsuarioComum> update(@PathVariable Long id,
 			@Valid @RequestBody UsuarioComum usuario){

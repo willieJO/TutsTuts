@@ -21,7 +21,7 @@ import br.com.edu.tutstuts.repository.UsuarioComumRepository;
 import br.com.edu.tutstuts.repository.UsuarioEmpresaRepository;
 import br.com.edu.tutstuts.repository.UsuarioRepository;
 import br.com.edu.tutstuts.service.UsuarioService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/Usuario")
@@ -57,15 +57,15 @@ public class UsuarioController {
 	
 	@PutMapping("AtualizarEmpresa/{id}")
 	public ResponseEntity<UsuarioEmpresa> updateEmpresa(@PathVariable Long id,
-			@Valid @RequestBody UsuarioEmpresa usuario){
-		UsuarioEmpresa userSaved = _service.updateEmpresa(id, usuario);
+			@Valid @RequestBody UsuarioEmpresa usuario, @RequestBody Boolean active){
+		UsuarioEmpresa userSaved = _service.updateEmpresa(id, usuario, active);
 		return ResponseEntity.ok(userSaved);
 	}
 	
-	@PutMapping("UsuarioComum/{id}")
+	@PutMapping("UsuarioComum/{id}/active")
 	public ResponseEntity<UsuarioComum> update(@PathVariable Long id,
-			@Valid @RequestBody UsuarioComum usuario){
-		UsuarioComum userSaved = _service.update(id, usuario);
+			@Valid @RequestBody UsuarioComum usuario, @RequestBody Boolean active){
+		UsuarioComum userSaved = _service.update(id, usuario, active);
 		return ResponseEntity.ok(userSaved);
 	}
 	

@@ -40,8 +40,9 @@ public class UsuarioService {
 		_usuarioComumRepository.save(usuario);
 	}
 	
-	public UsuarioEmpresa updateEmpresa(Long id, UsuarioEmpresa usuario) {
+	public UsuarioEmpresa updateEmpresa(Long id, UsuarioEmpresa usuario, Boolean active) {
 		UsuarioEmpresa usuarioEditado = findUserByIdEmpresa(id);
+		usuarioEditado.setAtivo(active);
 		BeanUtils.copyProperties(usuario, usuarioEditado, "id");
 		return _empresaRepository.save(usuarioEditado);
 	}
@@ -53,8 +54,9 @@ public class UsuarioService {
 		return userSaved;
 	}
 	
-	public UsuarioComum update(Long id, UsuarioComum usuario) {
+	public UsuarioComum update(Long id, UsuarioComum usuario, Boolean active) {
 		UsuarioComum usuarioEditado = findUserById(id);
+		usuarioEditado.setAtivo(active);
 		BeanUtils.copyProperties(usuario, usuarioEditado, "id");
 		return _usuarioComumRepository.save(usuarioEditado);
 	}

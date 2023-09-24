@@ -2,14 +2,15 @@ package br.com.edu.tutstuts.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "mensagens")
@@ -19,7 +20,7 @@ public class Mensagem {
 	private long id;
 	@NotNull
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate date;
+	private LocalDate data_mensagem;
     private int id_usuario_origem;
     private int id_usuario_destino;
     private String mensagem;

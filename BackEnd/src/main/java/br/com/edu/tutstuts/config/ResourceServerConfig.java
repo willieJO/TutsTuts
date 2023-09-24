@@ -20,16 +20,19 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-				.anyRequest().authenticated()
-			.and()
-				.httpBasic()
-			.and()
-				.sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-			.and()
-				.csrf().disable();
-	}
+        http
+            .authorizeRequests()
+			.antMatchers("/Usuario/AdicionarUsuario").permitAll() // Permite acesso sem token a este endpoint
+            .antMatchers("/Usuario/AdicionarUsuarioEmpresa").permitAll() // Permite acesso sem token a outro endpoint
+                .anyRequest().authenticated()
+            .and()
+                .httpBasic()
+            .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+                .csrf().disable();
+    }
 	
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {

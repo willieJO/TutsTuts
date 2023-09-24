@@ -31,7 +31,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	@GetMapping
+	@GetMapping("ObterLista")
 	public List<Usuario> list(){
 		return _service.ObterLista();
 	}

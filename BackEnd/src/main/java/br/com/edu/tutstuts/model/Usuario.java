@@ -1,17 +1,22 @@
 package br.com.edu.tutstuts.model;
 
 
+import java.util.List;
 import java.util.Objects; 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "usuario")
@@ -29,6 +34,11 @@ public class Usuario {
 	private String categoria;
 	@NotNull
 	private String senha;
+	@NotNull
+	private Boolean ativo;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "usuario_permissao", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_permissao"))
+	private List<Permissao> permissao;
 	 
 	public long getId() {
 		return id;
@@ -60,10 +70,25 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public Boolean isAtivo() {
+		return ativo;
+	}
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+	
+	
+	public List<Permissao> getPermissao() {
+		return permissao;
+	}
+	public void setPermissao(List<Permissao> permissao) {
+		this.permissao = permissao;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(categoria, email, id, nome, senha);
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

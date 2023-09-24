@@ -49,29 +49,3 @@ CREATE TABLE mensagens (
 ALTER TABLE mensagens
 ADD FOREIGN KEY (id_usuario_origem) REFERENCES usuario(id);
 
-ALTER TABLE mensagens
-ADD FOREIGN KEY (id_usuario_destino) REFERENCES usuario(id);
-
-ALTER TABLE usuario ADD COLUMN ativo BOOLEAN NOT NULL;
-
-CREATE TABLE permissao (
-	id INT(11) PRIMARY KEY,
-	descricao VARCHAR(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE usuario_permissao (
-	id_usuario INT(11) NOT NULL,
-	id_permissao INT(11) NOT NULL,
-	FOREIGN KEY (id_usuario) REFERENCES usuario(id),
-	FOREIGN KEY (id_permissao) REFERENCES permissao(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- admin
-INSERT INTO usuario (id, nome, email, senha, categoria, ativo) values (1, 'Administrador', 'admin@ifsp.edu.br', '$2a$10$X607ZPhQ4EgGNaYKt3n4SONjIv9zc.VMWdEuhCuba7oLAL5IvcL5.', 'show', 1);
-
--- user
-INSERT INTO permissao (id, descricao) values (1, 'ROLE_REGISTER_USER');
-INSERT INTO permissao (id, descricao) values (2, 'ROLE_REMOVE_USER');
-INSERT INTO permissao (id, descricao) values (3, 'ROLE_SEARCH_USER');
-
-

@@ -1,3 +1,5 @@
+
+
 .center-container {
     display: flex;
     flex-direction: column; /* Empilha os elementos verticalmente */
@@ -28,7 +30,24 @@
   /* Estilo para o p-inputgroup da senha */
 
 
-
+.glass-container {
+  display: flex;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    height: 350px;
+    background: rgba(255, 255, 255, 0.101);
+    box-shadow: 0 8px 32px 0 rgba(151, 12, 225, 0.37);
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba(185, 13, 136, 0.18);
+}
+.botaoEnviar {
+  background: linear-gradient(90.3deg, #B379DF 0.16%, #68CEE4 101.62%);
+  border-radius: 15px;
+  width: 300px;
+}
 
   .p-input-icon-left {
     position: relative;

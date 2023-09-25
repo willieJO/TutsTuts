@@ -1,8 +1,10 @@
+<p-toast></p-toast>
 <div class="center-container">
-    <div class="tracking-in-contract-bck">
+    <div>
         <h2 class="tracking-in-contract-bck">TUTS TUTS</h2>
-    </div>    
+    </div>
     <div class="glass-container">
+      <h2>Bem vindo!</h2>
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
           <i class="pi pi-envelope"></i>
@@ -20,7 +22,7 @@
           <label for="email">Email</label>
         </span>
       </div>
-  
+
     <p></p>
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">
@@ -34,7 +36,7 @@
             [(ngModel)]="login.senha"
             placeholder="Senha"
             id="password"
-            tabindex="2" 
+            tabindex="2"
           />
           <i
             class="pi"
@@ -43,11 +45,17 @@
             style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"
           ></i>
           <label for="senha">Senha</label>
+
         </span>
+
       </div>
-      
-    
+      <span (click)="esqueceuSenha()" class="esqueceu-senha">Esqueceu a senha ?</span>
+
     <p></p>
     <button class="botaoEnviar" pButton pRipple label="Entrar" (click)="realizarLogin()"></button>
+    <p></p>
+    <button class="botaoEnviar" pButton pRipple label="Registrar" ></button>
+
   </div>
+
 </div>

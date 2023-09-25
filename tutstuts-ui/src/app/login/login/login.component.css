@@ -6,32 +6,32 @@
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     height: 100vh; /* Isso garante que o contêiner ocupe toda a altura da janela */
-    
+    background-color: #3f044b;
   }
   .p-inputgroup {
-    width: 300px; /* Defina a largura desejada */
-    /* Outros estilos personalizados, se necessário */
+    width: 300px;
   }
-  
+  .esqueceu-senha {
+    font-size: 11px;
+    margin-left: 60%;
+
+  }
   .custom-password-inpu {
-    
-    width: 100% !important; /* Define a largura desejada */
-    /* Outros estilos personalizados, se necessário */
+    width: 100% !important;
   }
-  
+
   .labelInput {
-    
     display: inline-block;
     vertical-align: middle;
-    width: 210px; /* Largura do rótulo (ajuste conforme necessário) */
+    width: 210px;
     text-align: left;
-    margin-right: 10px; /* Espaçamento entre o rótulo e o campo de entrada */
+    margin-right: 10px;
   }
-  /* Estilo para o p-inputgroup da senha */
+
 
 
 .glass-container {
-  display: flex;
+    display: flex;
     flex-direction: column; /* Empilha os elementos verticalmente */
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
@@ -52,11 +52,11 @@
   .p-input-icon-left {
     position: relative;
   }
-  
+
   .p-input-icon-left i {
-    
+
     right: 10px; /* Ajuste conforme necessário para posicionar o ícone dentro do campo */
-    
+
     cursor: pointer;
   }
   .pi-eye , .pi-eye-slash{
@@ -65,22 +65,15 @@
     left: 90%;
 
     cursor: pointer;
-    
+
   }
 
-  
+
   .tracking-in-contract-bck{
-    
-    .tracking-in-contract-bck {
-        color: blueviolet;
-        
-        -webkit-animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-                animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    }
-    
+    color: #cb6ce6;
+    text-shadow: 5px solid #5ce1e6;
 }
   @-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}
-  
-  
 
-  
+
+

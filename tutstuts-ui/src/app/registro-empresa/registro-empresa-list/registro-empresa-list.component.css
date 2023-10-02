@@ -1,0 +1,68 @@
+
+.container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px ;
+  box-shadow: 0 8px 32px 0 #5096ac;
+  backdrop-filter: blur( 50px );
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #bd68e4;
+}
+.login-image {
+  margin-left: 10px;
+}
+
+.login-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.container h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90.3deg, #3f044b 0.06%,#151316 101.62%) ;
+  border: 1px solid #B379DF;
+  border-radius: 5px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #B379DF;
+  border-radius: 5px;
+}
+.main-login{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(50% 50% at 50% 50%, #151316 0%, rgba(54, 0, 96, 0.00) 100%);
+  }
+
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90.3deg, #B379DF 0.16%,#68CEE4 101.62%);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

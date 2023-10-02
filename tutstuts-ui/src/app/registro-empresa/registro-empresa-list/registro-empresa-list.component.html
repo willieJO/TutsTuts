@@ -1,0 +1,42 @@
+
+<title>{{ title }}</title>
+
+<body>
+  <div class="main-login">
+      <div class="container">
+        <div>
+          <!--image-->
+          <img  class="login-image img" src="../../../Tuts.png" alt="TutsTuts">
+      </div>
+        <h2>{{ title }}</h2>
+        <form>
+        <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        </div>
+        <div class="form-group">
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" name="categoria">
+          <option value="nenhuma">Nenhuma</option>
+          <option value="festival">Festival</option>
+          <option value="workshop">Workshop</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" name="cnpj" required>
+        </div>
+        <button class="btn" type="submit">Registrar</button>
+        </form>
+    </div>
+  </div>
+
+</body>

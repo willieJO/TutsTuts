@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { AuthService } from '../security/auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +9,7 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./login.component.css']
 })
 export class LoginUiComponent {
-  constructor(private messageService: MessageService) {
+  constructor(private messageService: MessageService, private auth: AuthService ) {
 
    }
 
@@ -18,9 +20,9 @@ export class LoginUiComponent {
   }
 
   title: string = 'Login';
-  login = {
-     email: null,
-     senha: null
+   login = {
+     email: "",
+     senha: ""
   };
 
   esqueceuSenha() {
@@ -31,26 +33,25 @@ export class LoginUiComponent {
       life: 2000
     });
   }
-
-  realizarLogin() {
-    const numeroAleatorio = Math.floor(Math.random() * 10) + 1;
-    if (numeroAleatorio % 2 == 0) {
+  realizarLogin(){
+    this.auth.login(this.login.email, this.login.senha)
+    .then((e) => {
       this.messageService.add({
         severity: 'success',
         summary: 'Login bem-sucedido',
         detail: 'Você foi autenticado com sucesso.',
         life: 2000
       });
-    } else {
+    })
+    .catch((e) => {
       this.messageService.add({
         severity: 'error',
         summary: 'Erro',
         detail: 'Credenciais invalidas',
         life: 2000
       });
-    }
-
-
+    })
   }
+
 
 }

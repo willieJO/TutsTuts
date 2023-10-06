@@ -1,42 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 
-<title>{{ title }}</title>
+    <title>{{ title }}</title>
 
+</head>
 <body>
-  <div class="main-login">
-      <div class="container">
-        <div>
-          <!--image-->
-          <img  class="login-image img" src="../../../Tuts.png" alt="TutsTuts">
-      </div>
-        <h2>{{ title }}</h2>
-        <form>
-        <div class="form-group">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+
+<div class="main-login">
+  <div class="container">
+            <!-- Formulário -->
+            <div class="image">
+              <!-- Image -->
+              <img class="login-image" src="https://i.imgur.com/ZR4cTBG.png">
+              </div>
+<br>
+                <div class="login">
+            <form>
+              <h2>{{ title }}</h2>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria" name="categoria">
+                        <option value="nenhuma">Nenhuma</option>
+                        <option value="festival">Festival</option>
+                        <option value="workshop">Workshop</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" id="cnpj" name="cnpj" required>
+                </div>
+                <button class="btn" type="submit">Registrar</button>
+            </form>
         </div>
-        <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-        </div>
-        <div class="form-group">
-        <label for="categoria">Categoria:</label>
-        <select id="categoria" name="categoria">
-          <option value="nenhuma">Nenhuma</option>
-          <option value="festival">Festival</option>
-          <option value="workshop">Workshop</option>
-        </select>
-        </div>
-        <div class="form-group">
-        <label for="cnpj">CNPJ:</label>
-        <input type="text" id="cnpj" name="cnpj" required>
-        </div>
-        <button class="btn" type="submit">Registrar</button>
-        </form>
+              </div>
     </div>
-  </div>
+
 
 </body>
+</html>

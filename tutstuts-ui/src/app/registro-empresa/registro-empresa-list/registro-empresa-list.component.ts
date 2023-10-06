@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro-empresa-list.component.css']
 })
 export class RegistroEmpresaListComponent {
-  title = 'TutsTuts - Registro Empresa';
+  title = 'Registro Empresa';
 
 }
 

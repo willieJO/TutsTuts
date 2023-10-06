@@ -21,6 +21,35 @@
 
   animation: neon-animation 1.3s infinite alternate;
 }
+@media screen and (max-width: 680px){
+  .container{
+    width: 100%;
+    flex-direction: column;
+  }
+  .main-login{
+    background: linear-gradient(180.3deg, #3f044b 50.6%, #2a023f 101.62%);
+
+  }
+  .h2{
+    font-size: 1px;
+  }
+  body{
+    background: linear-gradient(-180.3deg, #3f044b 50.6%, #2a023f 101.62%);
+
+  }
+  .login-image{
+    width: 200px;
+    margin-top: 0px;
+    height: 200px;
+  }
+  .image{
+    width: 200px;
+    height: 200px;
+  }
+  .login{
+    margin-top: -80px;
+  }
+}
 
 /* Estilos da imagem */
 .image {

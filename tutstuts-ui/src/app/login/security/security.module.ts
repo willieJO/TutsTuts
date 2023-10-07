@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
-import { LoginUiComponent } from '../login/login.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -14,7 +12,7 @@ export function tokenGetter(): any {
 
 @NgModule({
   declarations: [
-    LoginUiComponent
+    
   ],
   imports: [
     CommonModule,
@@ -30,7 +28,7 @@ export function tokenGetter(): any {
     })
   ],
   exports: [
-    LoginUiComponent
+    
   ],
   providers: [
     JwtHelperService

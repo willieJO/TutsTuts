@@ -1,12 +1,17 @@
 <p-toast></p-toast>
+
+
 <div class="center-container">
-    <div>
-        <h2 class="tracking-in-contract-bck">TUTS TUTS</h2>
-    </div>
-    <div class="glass-container">
-      <h2>Bem vindo!</h2>
+  
+    <div class="glass-container ">
+      <div class="p-grid">
+        <div class="col-12 text-center"> <!-- Use a classe "text-center" para centralizar o conteúdo horizontalmente -->
+          <img class="login-image img-fluid" src="https://imgur.com/MfHVuqH.png">
+          <!-- Use a classe "img-fluid" para tornar a imagem responsiva -->
+        </div>
+      </div>  
     <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
+        <span class="p-inputgroup-addon custom-addon">
           <i class="pi pi-envelope"></i>
         </span>
         <span class="p-float-label">
@@ -22,10 +27,9 @@
           <label for="email">Email</label>
         </span>
       </div>
-
     <p></p>
     <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">
+        <span class="p-inputgroup-addon custom-addon">
           <i class="iconKey pi pi-key"></i>
         </span>
         <span class="p-float-label">
@@ -36,6 +40,7 @@
             [(ngModel)]="login.senha"
             placeholder="Senha"
             id="password"
+            class="custom-input"
             tabindex="2"
           />
           <i
@@ -49,7 +54,6 @@
         </span>
 
       </div>
-      <span (click)="esqueceuSenha()" class="esqueceu-senha">Esqueceu a senha ?</span>
 
     <p></p>
     <button class="botaoEnviar" pButton pRipple label="Entrar" (click)="realizarLogin()"></button>

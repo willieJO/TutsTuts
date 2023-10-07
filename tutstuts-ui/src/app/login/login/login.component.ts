@@ -10,7 +10,7 @@ import { AuthService } from '../security/auth.service';
 })
 export class LoginUiComponent {
   constructor(private messageService: MessageService, private auth: AuthService ) {
-
+    
    }
 
   showPassword = false;

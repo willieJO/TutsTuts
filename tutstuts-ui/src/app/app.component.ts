@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './registro/registro-list/registro-list.component.html',
+  styleUrls: ['./registro/registro-list/registro-list.component.css']
 })
 export class AppComponent {
-  title = 'tutstuts-ui';
+  title = 'Registro Usuário';
 }

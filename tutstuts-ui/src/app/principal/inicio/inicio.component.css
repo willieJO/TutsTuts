@@ -1,0 +1,12 @@
+
+.card-container {
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    height: 100vh; /* Isso define a altura para ocupar toda a altura da tela */
+  }
+  
+
+  

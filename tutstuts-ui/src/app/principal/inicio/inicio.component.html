@@ -1,0 +1,12 @@
+
+  <div class="card-container">
+    <app-card
+      *ngFor="let cardData of cardDataList"
+      class="app-card"
+      [title]="cardData.title"
+      [imageSrc]="cardData.imageSrc"
+      [content]="cardData.content"
+      [likes]="cardData.likes"
+    ></app-card>
+  </div>
+

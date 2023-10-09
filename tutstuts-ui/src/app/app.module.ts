@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { SecurityModule } from './security/security.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.module';
+import { PrincipalModule } from './principal/principal.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     LoginModule,
+    PrincipalModule,
+    CoreModule,
     HttpClientModule,
     SecurityModule,
     BrowserAnimationsModule,

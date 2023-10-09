@@ -1,0 +1,22 @@
+<div class="sidebar-container"  *ngIf="authService.isAutenticado()">
+    <p-button (click)="toggleSidebar()" icon="pi pi-bars" class="sidebar-toggle-button"></p-button>
+    <p-sidebar  [(visible)]="sidebarVisible" [showCloseIcon]="true" styleClass="custom-sidebar">
+        <ng-template pTemplate="header">
+            <img class="login-image responsive-image" src="https://imgur.com/RMiWfFm.png">
+        </ng-template>
+        <ng-template pTemplate="content">
+            <div>
+                <mat-icon>home</mat-icon> Página Principal
+            </div>
+            <div>
+                <mat-icon>search</mat-icon> Pesquisar
+            </div>
+            <div>
+                <mat-icon>person</mat-icon> Meu Perfil
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <mat-icon>exit_to_app</mat-icon> Sair
+        </ng-template>
+    </p-sidebar>
+</div>

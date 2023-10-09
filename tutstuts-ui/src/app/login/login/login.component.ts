@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../security/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +9,7 @@ import { AuthService } from '../security/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginUiComponent {
-  constructor(private messageService: MessageService, private auth: AuthService ) {
+  constructor(private messageService: MessageService, private auth: AuthService, private router: Router  ) {
     
    }
 
@@ -42,6 +42,7 @@ export class LoginUiComponent {
         detail: 'Você foi autenticado com sucesso.',
         life: 2000
       });
+      
     })
     .catch((e) => {
       this.messageService.add({

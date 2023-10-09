@@ -6,8 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { CardComponent } from './card/card.component';
-
+import {CardComponent } from './card/card.component'
 @NgModule({
   declarations: [InicioComponent, CardComponent],
   imports: [

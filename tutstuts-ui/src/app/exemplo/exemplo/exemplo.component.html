@@ -1,0 +1,43 @@
+<input
+            type="text"
+            pInputText
+            [(ngModel)]="exemplo.email"
+            placeholder="Email"
+            id="email"
+            tabindex="1"
+            class="custom-input"
+          />
+          <label for="email">Email</label>
+          <input
+            type="number"
+            pInputText
+            [(ngModel)]="exemplo.numero"
+            placeholder="Numero"
+            id="numero"
+            tabindex="1"
+            class="custom-input"
+          />
+          <label for="email">Numero</label>
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="exemplo.nome"
+            placeholder="Nome"
+            id="nome"
+            tabindex="1"
+            class="custom-input"
+          />
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="exemplo.senha"
+            placeholder="Senha"
+            id="senha"
+            tabindex="1"
+            class="custom-input"
+          />
+          <label for="email">Senha</label>
+
+
+          <button class="botaoEnviar" pButton pRipple label="Entrar" (click)="enviar()">Enviar</button>

@@ -5,7 +5,6 @@ import { TooltipModule } from 'primeng/tooltip';;
 import { RegistroListComponent } from './registro-list/registro-list.component';
 import { FormsModule } from '@angular/forms';
 import { PasswordModule } from "primeng/password";
-
 @NgModule({
   declarations: [
     RegistroListComponent

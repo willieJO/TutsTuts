@@ -3,6 +3,7 @@ export class RegistroUsuario {
   email: string;
   senha: string;
   confirmacaoSenha: string;
+  ativo: boolean;
   categoria: string;
 
   constructor() {
@@ -11,6 +12,7 @@ export class RegistroUsuario {
       this.senha = "";
       this.confirmacaoSenha = "";
       this.categoria = "";
+      this.ativo = true;
   }
 
 }

@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
 
 <head>
   <title>{{ title }}</title>
 </head>
 
-<body>
   <div class="main-login">
     <div class="container">
       <!-- Formulário -->
@@ -41,11 +38,10 @@
               <option value="workshop">Workshop</option>
             </select>
           </div>
-          <button class="btn" type="submit">Registrar</button>
+          <button class="botaoEnviar" pButton pRipple label="Entrar" (click)="enviar()"></button>
         </form>
       </div>
     </div>
   </div>
-</body>
 
-</html>
+

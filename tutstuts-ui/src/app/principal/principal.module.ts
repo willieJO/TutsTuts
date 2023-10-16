@@ -7,12 +7,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CardComponent } from './card/card.component';
+import { CloudinaryModule } from '@cloudinary/ng';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [InicioComponent, CardComponent],
   imports: [
     CommonModule,
     ButtonModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    CloudinaryModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,

@@ -5,8 +5,17 @@
     justify-content: center;
     align-items: center;
     flex-direction: column; 
-    height: 100vh; /* Isso define a altura para ocupar toda a altura da tela */
+    
+  }
+  .loading-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
   }
   
-
+  .custom-spinner {
+    width: 10px;
+    height: 10px;
+  }
   

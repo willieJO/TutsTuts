@@ -54,9 +54,8 @@ public class UsuarioService {
 		return userSaved;
 	}
 	
-	public UsuarioComum update(Long id, UsuarioComum usuario, Boolean active) {
+	public UsuarioComum update(Long id, UsuarioComum usuario) {
 		UsuarioComum usuarioEditado = findUserById(id);
-		usuarioEditado.setAtivo(active);
 		BeanUtils.copyProperties(usuario, usuarioEditado, "id");
 		return _usuarioComumRepository.save(usuarioEditado);
 	}

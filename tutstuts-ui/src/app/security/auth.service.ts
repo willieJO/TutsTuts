@@ -60,5 +60,14 @@ export class AuthService {
     }
     return false;
   }
+
+  getUserIdFromToken(): number | null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      return decodedToken['user_id']; // Certifique-se de usar o mesmo nome da reivindicação usada no servidor.
+    }
+    return null;
+  }
   
 }

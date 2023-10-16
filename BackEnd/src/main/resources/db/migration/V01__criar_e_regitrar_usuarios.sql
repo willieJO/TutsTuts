@@ -4,6 +4,7 @@ CREATE TABLE usuario (
    `nome` varchar(250),
   `senha` varchar(250),
   `email` varchar(45),
+  `foto` varchar(250) DEFAULT 'https://res.cloudinary.com/duondvpwq/image/upload/v1697344132/uexc4falwmplpyz0xmrx.jpg',
   `categoria` VARCHAR(25)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

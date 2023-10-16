@@ -1,12 +1,15 @@
 
-  <div class="card-container">
-    <app-card
-      *ngFor="let cardData of cardDataList"
-      class="app-card"
-      [title]="cardData.title"
-      [imageSrc]="cardData.imageSrc"
-      [content]="cardData.content"
-      [likes]="cardData.likes"
-    ></app-card>
-  </div>
-
+<div class="card-container" >
+  <app-card
+    *ngFor="let cardData of paginatedCardDataList"
+    class="app-card"
+    [id]="cardData.id"
+    [title]="cardData.title"
+    [imageSrc]="cardData.imageSrc"
+    [content]="cardData.content"
+    [likes]="cardData.likes"
+  ></app-card>
+</div>
+<div *ngIf="showLoading" class="loading-overlay">
+  <mat-progress-spinner class="custom-spinner" mode="indeterminate"></mat-progress-spinner>
+</div>

@@ -62,10 +62,10 @@ public class UsuarioController {
 		return ResponseEntity.ok(userSaved);
 	}
 	
-	@PutMapping("UsuarioComum/{id}/{active}")
+	@PutMapping("UsuarioComum/{id}")
 	public ResponseEntity<UsuarioComum> update(@PathVariable Long id,
-			@Valid @RequestBody UsuarioComum usuario, @RequestBody Boolean active){
-		UsuarioComum userSaved = _service.update(id, usuario, active);
+			@Valid @RequestBody UsuarioComum usuario){
+		UsuarioComum userSaved = _service.update(id, usuario);
 		return ResponseEntity.ok(userSaved);
 	}
 	

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../security/auth.service';
+import { AuthService } from 'src/app/security/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -33,6 +33,7 @@ export class LoginUiComponent {
       life: 2000
     });
   }
+  // TODO Ao realizar login, redirecionar apra a tela certa
   realizarLogin(){
     this.auth.login(this.login.email, this.login.senha)
     .then((e) => {

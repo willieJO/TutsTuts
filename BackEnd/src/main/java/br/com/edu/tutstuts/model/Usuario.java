@@ -34,12 +34,19 @@ public class Usuario {
 	private String categoria;
 	@NotNull
 	private String senha;
+	private String foto;
 	@NotNull
 	private Boolean ativo;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "usuario_permissao", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_permissao"))
 	private List<Permissao> permissao;
 	 
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 	public long getId() {
 		return id;
 	}

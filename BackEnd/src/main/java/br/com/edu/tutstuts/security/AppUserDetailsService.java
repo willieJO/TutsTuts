@@ -26,15 +26,14 @@ public class AppUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Optional<Usuario> userOptional = userRepository.findByEmail(email);
 		Usuario user = userOptional.orElseThrow(() -> new UsernameNotFoundException("Usuário e/ou senha incorretos"));
-		return new org.springframework.security.core.userdetails.User
-				(email, user.getSenha(), getPermissions(user));
+		return new UsuarioSistema(user, getPermissions(user));
 	}
 
 	private Collection<? extends GrantedAuthority> getPermissions(Usuario user) {
 		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-		user.getPermissao().forEach(p -> 
-		authorities.add(
-				new SimpleGrantedAuthority(p.getDescricao().toUpperCase())));
+		user.getPermissao().forEach(
+				p -> authorities.add(
+						new SimpleGrantedAuthority(p.getDescricao().toUpperCase())));
 		return authorities;
 	}
 

@@ -8,22 +8,25 @@ import { SecurityModule } from './security/security.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { PrincipalModule } from './principal/principal.module';
-
+import { PerfilModule } from './perfil/perfil.module';
+import { ModalModule } from './modal/modal.module';
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,
     LoginModule,
+    ModalModule,
     PrincipalModule,
+    PerfilModule,
     CoreModule,
     HttpClientModule,
     SecurityModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

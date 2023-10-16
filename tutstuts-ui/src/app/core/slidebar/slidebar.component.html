@@ -15,8 +15,11 @@
                 <mat-icon>person</mat-icon> Meu Perfil
             </div>
         </ng-template>
-        <ng-template pTemplate="footer" style="cursor: pointer; margin-top:8px">
-            <mat-icon>exit_to_app</mat-icon> Sair
+        <ng-template  pTemplate="footer" style="cursor: pointer; margin-top:8px">
+          <div (click)="goToLoginPage()" style="cursor: pointer; margin-top:12px">
+                <mat-icon>exit_to_app</mat-icon> Sair
+            </div>
+
         </ng-template>
     </p-sidebar>
 </div>

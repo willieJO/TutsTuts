@@ -11,7 +11,7 @@ export class PerfilService {
   baseUrl = 'http://localhost:8080'; // URL base da sua API
 
   constructor(private http: HttpClient, private auth: AuthService) { }
-
+  
   obterUsuarioPorId(): Observable<Usuario> {
     const url = `${this.baseUrl}/Usuario/${this.auth.getUserIdFromToken()}`;
     return this.http.get<Usuario>(url);

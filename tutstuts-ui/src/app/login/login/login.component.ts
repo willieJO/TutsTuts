@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginUiComponent {
   constructor(private messageService: MessageService, private auth: AuthService, private router: Router  ) {
-    
-   }
 
+   }  
+   
   showPassword = false;
   togglePasswordVisibility(passwordInput: HTMLInputElement) {
     this.showPassword = !this.showPassword;
@@ -43,7 +43,7 @@ export class LoginUiComponent {
         detail: 'Você foi autenticado com sucesso.',
         life: 2000
       });
-      
+      this.router.navigate(['/principal']);
     })
     .catch((e) => {
       this.messageService.add({

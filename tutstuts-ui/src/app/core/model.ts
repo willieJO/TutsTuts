@@ -8,6 +8,6 @@ export class Usuario {
     senha: string;
     ativo: boolean;
     foto: string;
-    
+    cnpj:string;
+
   }
-  

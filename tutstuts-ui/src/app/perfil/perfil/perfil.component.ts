@@ -47,6 +47,7 @@ export class PerfilComponent {
       console.error('Erro ao fazer upload da imagem: ', e);
      })
   }
+  
   carregarDadosUsuario() {
     this.perfilService.obterUsuarioPorId().subscribe((user: Usuario) => {
       this.usuario = { ...user };

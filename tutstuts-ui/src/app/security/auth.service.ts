@@ -21,7 +21,7 @@ export class AuthService {
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/x-www-form-urlencoded')
       .append('Authorization', 'Basic Y2xpZW50OmNsaWVudA==');
-
+      
     const body = `username=${user}&password=${password}&grant_type=password`;
 
     return this.http.post(this.oauthTokenUrl, body, { headers })

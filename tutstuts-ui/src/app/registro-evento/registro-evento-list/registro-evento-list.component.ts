@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RegistroEventoServiceService } from 'src/app/Registro-Evento-Service/registro-evento-service.service';
-import { Evento } from 'src/app/core/model';
+import { RegistroEventoServiceService } from '../../Registro-Evento-Service/registro-evento-service.service';
+import { Evento } from '../../core/model';
 
 @Component({
   selector: 'app-registro-evento-list',

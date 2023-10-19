@@ -1,48 +1,90 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ title }}</title>
-  </head>
-  <body>
-    <div class="main-login">
-      <div class="container">
-        <!-- Formulário -->
-        <div class="image">
-          <!-- Image -->
-          <img class="login-image" src="https://i.imgur.com/ZR4cTBG.png" />
-        </div>
-
-        <div class="login">
-          <h2>{{ title }}</h2>
-          <form>
-            <div class="form-group">
-              <label for="nome">Nome:</label>
-              <input type="text" id="nome" name="nome" required />
-            </div>
-            <div class="form-group">
-              <label for="descricao">Descrição:</label>
-              <input type="text" id="descricao" name="descricao" required />
-            </div>
-            <div class="form-group">
-              <label for="data-evento">Data Evento:</label>
-              <input type="date" id="data-evento" name="data-evento" required />
-            </div>
-            <div class="form-group">
-              <label for="categoria">Categoria:</label>
-              <select id="categoria" name="categoria">
-                <option value="nenhuma">Nenhuma</option>
-                <option value="festival">Festival</option>
-                <option value="workshop">Workshop</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="cnpj">Localidade:</label>
-              <input type="text" id="localidade" name="localidade" required />
-            </div>
-            <button class="btn" type="submit">Registrar</button>
-          </form>
-        </div>
-      </div>
+<div class="main-login">
+  <div class="container">
+    <!-- Formulário -->
+    <div class="image">
+      <!-- Image -->
+      <img class="login-image" src="https://i.imgur.com/ZR4cTBG.png" />
     </div>
-  </body>
-</html>
+
+    <div class="login">
+      <h2>{{ title }}</h2>
+
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="evento.nome"
+          id="nome"
+          name="nome"
+          tabindex="1"
+          class="custom-input"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="evento.descricao"
+          id="descricao"
+          name="descricao"
+          tabindex="1"
+          class="custom-input"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="data-evento">Data Evento:</label>
+        <input
+          type="date"
+          pInputText
+          [(ngModel)]="evento.data_evento"
+          id="data-evento"
+          name="data-evento"
+          tabindex="1"
+          class="custom-input"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="categoria">Categoria:</label>
+        <select
+          pInputText
+          [(ngModel)]="evento.categoria"
+          id="categoria"
+          name="categoria"
+          tabindex="1"
+          class="custom-input"
+        >
+          <option value="nenhuma">Nenhuma</option>
+          <option value="festival">Festival</option>
+          <option value="workshop">Workshop</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="localidade">Localidade:</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="evento.localidade"
+          id="localidade"
+          name="localidade"
+          tabindex="1"
+          class="custom-input"
+          required
+        />
+      </div>
+      <button
+        class="botaoEnviar"
+        pButton
+        pRipple
+        label="Entrar"
+        (click)="enviar()"
+      >
+        Registrar
+      </button>
+    </div>
+  </div>
+</div>

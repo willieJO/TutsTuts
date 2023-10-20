@@ -1,3 +1,7 @@
+<head>
+  <title>{{ title }}</title>
+</head>
+
 <div class="main-login">
   <div class="container">
     <!-- Formulário -->
@@ -8,7 +12,6 @@
 
     <div class="login">
       <h2>{{ title }}</h2>
-
       <div class="form-group">
         <label for="nome">Nome:</label>
         <input
@@ -80,11 +83,9 @@
         class="botaoEnviar"
         pButton
         pRipple
-        label="Entrar"
+        label="Registrar"
         (click)="enviar()"
-      >
-        Registrar
-      </button>
+      ></button>
     </div>
   </div>
 </div>

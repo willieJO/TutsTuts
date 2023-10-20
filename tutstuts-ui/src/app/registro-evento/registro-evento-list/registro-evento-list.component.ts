@@ -9,7 +9,7 @@ import { Evento } from '../../core/model';
 })
 export class RegistroEventoListComponent {
   title = 'Registro Evento';
-
+  value = '';
   constructor(public eventoserviceService: RegistroEventoServiceService) {}
   evento = new Evento();
 

@@ -24,7 +24,7 @@ public class Evento {
     @NotNull
     private String descricao;
     @NotNull
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    //@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate data_evento;
     private int avaliacao;
     private String localidade;

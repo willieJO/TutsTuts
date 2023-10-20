@@ -24,6 +24,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
             .authorizeRequests()
 			.antMatchers("/Usuario/AdicionarUsuario").permitAll() // Permite acesso sem token a este endpoint
             .antMatchers("/Usuario/AdicionarUsuarioEmpresa").permitAll() // Permite acesso sem token a outro endpoint
+            .antMatchers("/Evento/AdicionarEvento").permitAll() // Permite acesso sem token a outro endpoint
                 .anyRequest().authenticated()
             .and()
                 .httpBasic()

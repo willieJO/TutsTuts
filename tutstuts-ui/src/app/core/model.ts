@@ -7,4 +7,6 @@ export class Evento {
   ativo: number;
   localidade: string;
   categoria: string;
+
+  constructor() {}
 }

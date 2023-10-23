@@ -11,3 +11,8 @@ export class Usuario {
     cnpj:string;
 
   }
+  export class Busca {
+    id:number;
+    nome: string;
+    foto: string;
+   }

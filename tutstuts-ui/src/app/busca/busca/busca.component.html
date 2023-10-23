@@ -1,0 +1,18 @@
+<div style="display: flex; justify-content: center; margin-top: 2%;">
+    <div style="position: relative; width: 90%;">
+      <span class="p-fluid">
+        <p-autoComplete [(ngModel)]="nome" [suggestions]="resultadosFiltrados" (completeMethod)="filtrarPessoas($event)" 
+          field="nome" (onSelect)="aoSelecionar($event)" [styleClass]="'full-width-auto-complete'" 
+          [style]="{'width': '100%'}">
+          <ng-template let-pessoa pTemplate="item">
+            <img [src]="pessoa.foto" style="width:30px;height:30px;border-radius:50%">
+            <span>{{ pessoa.nome }}</span>
+          </ng-template>
+        </p-autoComplete>
+        <span style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%);">
+          <i class="pi pi-search" style="font-size: 1.5em;"></i>
+        </span>
+      </span>
+    </div>
+  </div>
+  

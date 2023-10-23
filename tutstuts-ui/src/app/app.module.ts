@@ -10,15 +10,16 @@ import { CoreModule } from './core/core.module';
 import { PrincipalModule } from './principal/principal.module';
 import { PerfilModule } from './perfil/perfil.module';
 import { ModalModule } from './modal/modal.module';
+import { BuscaModule } from './busca/busca.module';
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
     LoginModule,
     ModalModule,
+    BuscaModule,
     PrincipalModule,
     PerfilModule,
     CoreModule,

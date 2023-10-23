@@ -1,0 +1,19 @@
+.full-width-container {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .full-width-auto-complete {
+    width: 100% !important;
+    max-width: 600px; /* Você pode ajustar o valor máximo conforme necessário */
+  }
+  
+  ::ng-deep .ui-autocomplete {
+    width: 100% !important;
+  }
+
+  p-autocomplete{
+    width: 10% !important;
+
+  }

@@ -17,4 +17,7 @@ export class RegistroListComponent {
     enviar() {
       this.registroserviceService.enviar(this.registro);
     }
+
+
+
 }

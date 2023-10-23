@@ -16,29 +16,52 @@
           <h2>{{ title }}</h2>
           <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+            <input type="text"
+            pInputText
+            [(ngModel)]="registro.nome"
+            id="nome"
+            name="nome"
+            required>
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email"
+            pInputText
+            [(ngModel)]="registro.email"
+            id="email"
+            name="email"
+            required>
           </div>
           <div class="form-group">
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
+            <input type="password"
+            pInputText
+            [(ngModel)]="registro.senha"
+            id="senha"
+            name="senha"
+            required>
           </div>
           <div class="form-group">
             <label for="senha">Confirme sua senha:</label>
-            <input type="password" id="senha-confirmacao" name="senha-confirmacao" required>
+            <input type="password"
+            pInputText
+            [(ngModel)]="registro.confirmacaoSenha"
+            id="senha-confirmacao"
+            name="senha-confirmacao"
+            required>
           </div>
           <div class="form-group">
             <label for="categoria">Categoria:</label>
-            <select id="categoria" name="categoria">
+            <select id="categoria"
+            name="categoria"
+            pInputText
+            [(ngModel)]="registro.categoria">
               <option value="nenhuma">Nenhuma</option>
               <option value="festival">Festival</option>
               <option value="workshop">Workshop</option>
             </select>
           </div>
-          <button class="botaoEnviar" pButton pRipple label="Entrar" (click)="enviar()"></button>
+          <button class="btn" pButton pRipple label="Registrar" (click)="enviar()"></button>
         </form>
       </div>
     </div>

@@ -6,13 +6,4 @@ export class RegistroUsuario {
   ativo: boolean;
   categoria: string;
 
-  constructor() {
-      this.nome = "";
-      this.email = "";
-      this.senha = "";
-      this.confirmacaoSenha = "";
-      this.categoria = "";
-      this.ativo = true;
-  }
-
 }

@@ -1,3 +1,4 @@
+import { RegistroEmpresaListComponent } from './registro-empresa/registro-empresa-list/registro-empresa-list.component';
 import { RegistroOpcoesListComponent } from './registro-opcoes/registro-opcoes-list/registro-opcoes-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +9,6 @@ import { PerfilComponent } from './perfil/perfil/perfil.component';
 import { BuscaComponent } from './busca/busca/busca.component';
 import { RegistroEventoListComponent } from './registro-evento/registro-evento-list/registro-evento-list.component';
 import { RegistroListComponent } from './registro/registro-list/registro-list.component';
-
 
 const routes: Routes = [
   { path: '', component: LoginUiComponent, canActivate: [AuthGuard]  },

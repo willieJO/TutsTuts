@@ -13,7 +13,7 @@ import { BuscaModule } from './busca/busca.module';
 import { RegistroEventoModule } from './registro-evento/registro-evento.module';
 import { RegistroModule } from './registro/registro.module';
 import { RegistroEmpresaModule } from './registro-empresa/registro-empresa.module';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,9 +25,9 @@ import { RegistroEmpresaModule } from './registro-empresa/registro-empresa.modul
     ModalModule,
     BuscaModule,
     PrincipalModule,
+    HttpClientModule,
     PerfilModule,
     CoreModule,
-    HttpClientModule,
     SecurityModule,
     RegistroEventoModule,
     BrowserAnimationsModule,

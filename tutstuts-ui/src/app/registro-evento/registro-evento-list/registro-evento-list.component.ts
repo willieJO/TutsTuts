@@ -1,5 +1,5 @@
+import { RegistroEventoServiceService } from './../registro-evento-service.service';
 import { Component } from '@angular/core';
-import { RegistroEventoServiceService } from '../../Registro-Evento-Service/registro-evento-service.service';
 import { Evento } from '../../core/model';
 import { MessageService } from 'primeng/api';
 

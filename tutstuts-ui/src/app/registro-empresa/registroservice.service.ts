@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { RegistroUsuario } from '../core/model';
 
 @Injectable({
+
   providedIn: 'root'
 })
 export class RegistroserviceService {

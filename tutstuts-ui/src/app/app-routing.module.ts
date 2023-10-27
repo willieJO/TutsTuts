@@ -1,3 +1,4 @@
+import { RegistroOpcoesListComponent } from './registro-opcoes/registro-opcoes-list/registro-opcoes-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginUiComponent } from './login/login/login.component'
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'busca', component: BuscaComponent },
   { path: 'registroUsuario', component: RegistroListComponent },
   { path: 'registroEvento', component: RegistroEventoListComponent },
+  { path: 'empresa', component: RegistroEmpresaListComponent },
+  { path: 'opcoes', component: RegistroOpcoesListComponent },
   { path: 'login', component: LoginUiComponent }
 ];
 

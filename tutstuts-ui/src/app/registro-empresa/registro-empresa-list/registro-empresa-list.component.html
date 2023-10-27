@@ -1,0 +1,60 @@
+
+
+<head>
+  <title>{{ title }}</title>
+
+</head>
+
+<body>
+
+  <div class="main-login">
+    <div class="container">
+      <!-- Formulário -->
+      <div class="image">
+        <!-- Image -->
+        <img class="login-image" src="https://i.imgur.com/ZR4cTBG.png">
+      </div>
+
+      <div class="login">
+        <h2>{{ title }}</h2>
+        <form>
+
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" placeholder="Nome" id="nome" tabindex="1"
+              required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" placeholder="Email" id="email" tabindex="2"
+              required />
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input #passwordInput type="password" placeholder="Senha" id="password" class="custom-input" tabindex="3" />
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria">
+              <option value="nenhuma">Nenhuma</option>
+              <option value="festival">Festival</option>
+              <option value="workshop">Workshop</option>
+            </select>
+            <input type="text" placeholder="Categoria" id="categoria" tabindex="4"
+             />
+          </div>
+          <div class="form-group">
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" placeholder="Cnpj" id="cnpj" tabindex="5"
+              required />
+          </div>
+          <button class="btn" pButton pRipple label="Registrar" (click)="enviar()"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+

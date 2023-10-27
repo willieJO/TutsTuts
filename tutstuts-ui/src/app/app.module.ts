@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { SecurityModule } from './security/security.module'
@@ -13,6 +12,8 @@ import { ModalModule } from './modal/modal.module';
 import { BuscaModule } from './busca/busca.module';
 import { RegistroEventoModule } from './registro-evento/registro-evento.module';
 import { RegistroModule } from './registro/registro.module';
+import { RegistroEmpresaModule } from './registro-empresa/registro-empresa.module';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { RegistroModule } from './registro/registro.module';
     RegistroEventoModule,
     BrowserAnimationsModule,
     RegistroModule,
+    RegistroEmpresaModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

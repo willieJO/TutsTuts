@@ -30,7 +30,7 @@ export class Busca {
     id: number;
     nome: string;
     foto: string;
-}
+    }
 
 export class RegistroUsuario {
     nome: string;

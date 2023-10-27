@@ -6,6 +6,7 @@ import {NgForm} from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { TooltipModule } from 'primeng/tooltip';
     CommonModule,
     TableModule,
     ButtonModule,
+    FormsModule,
 
     TooltipModule
   ],

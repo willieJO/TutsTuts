@@ -15,9 +15,9 @@ export class RegistrarService {
   ) { }
 
 
-  registroempresa(registrar: Usuario): Promise<any> {
+  registroempresa(registro: Usuario): Promise<any> {
 
-    return this.http.post(this.empresaUrl, registrar)
+    return this.http.post(this.empresaUrl, registro)
       .toPromise();
   }
 }

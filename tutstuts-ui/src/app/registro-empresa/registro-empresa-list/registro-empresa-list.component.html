@@ -21,32 +21,31 @@
 
           <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" placeholder="Nome" id="nome" tabindex="1"
-              required />
+            <input type="text" [(ngModel)]="registro.nome" placeholder="Nome" name="nome" id="nome" tabindex="1"
+              />
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="text" placeholder="Email" id="email" tabindex="2"
-              required />
+            <input type="text"[(ngModel)]="registro.email"  placeholder="Email" name="email" id="email" tabindex="2"
+              />
           </div>
           <div class="form-group">
             <label for="senha">Senha:</label>
-            <input #passwordInput type="password" placeholder="Senha" id="password" class="custom-input" tabindex="3" />
+            <input #passwordInput [(ngModel)]="registro.senha" type="password" placeholder="Senha" name="senha" id="password" class="custom-input" tabindex="3" />
           </div>
           <div class="form-group">
             <label for="categoria">Categoria:</label>
-            <select id="categoria" name="categoria">
+            <select id="categoria" [(ngModel)]="registro.categoria"  name="categoria">
               <option value="nenhuma">Nenhuma</option>
               <option value="festival">Festival</option>
               <option value="workshop">Workshop</option>
             </select>
-            <input type="text" placeholder="Categoria" id="categoria" tabindex="4"
-             />
+
           </div>
           <div class="form-group">
             <label for="cnpj">CNPJ:</label>
-            <input type="text" placeholder="Cnpj" id="cnpj" tabindex="5"
-              required />
+            <input type="text" [(ngModel)]="registro.cnpj" placeholder="Cnpj" name="cnpj" id="cnpj" tabindex="5"
+               />
           </div>
           <button class="btn" pButton pRipple label="Registrar" (click)="enviar()"></button>
         </form>

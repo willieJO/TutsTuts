@@ -6,13 +6,7 @@ export class Usuario {
   senha: String;
   cnpj: String;
   ativo: boolean;
-constructor() {
-      this.nome= "";
-      this.email= "";
-      this.categoria= "";
-      this.senha= "";
-      this.cnpj= "";
-      this.ativo= true;
-    }
-
+  constructor(){
+    this.ativo= true;
+  }
 }

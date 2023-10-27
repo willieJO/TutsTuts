@@ -17,11 +17,11 @@ export class Evento {
 
 export class Usuario {
     id: number;
-    nome: string;
-    email: string;
+  nome: string;
+  email: string;
     categoria: string;
-    senha: string;
-    ativo: boolean;
+  senha: string;
+  ativo: boolean;
     foto: string;
     cnpj: string;
 
@@ -30,4 +30,14 @@ export class Busca {
     id: number;
     nome: string;
     foto: string;
+}
+
+export class RegistroUsuario {
+    nome: string;
+    email: string;
+    senha: string;
+    confirmacaoSenha: string;
+    ativo: boolean;
+    categoria: string;
+
 }

@@ -6,12 +6,15 @@ import { AuthGuard } from './security/auth.guard'; // Importe o AuthGuard
 import { PerfilComponent } from './perfil/perfil/perfil.component';
 import { BuscaComponent } from './busca/busca/busca.component';
 import { RegistroEventoListComponent } from './registro-evento/registro-evento-list/registro-evento-list.component';
+import { RegistroListComponent } from './registro/registro-list/registro-list.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginUiComponent, canActivate: [AuthGuard]  },
   { path: 'principal', component: InicioComponent },
   { path: 'perfil', component: PerfilComponent},
-  { path: 'busca', component: BuscaComponent},
+  { path: 'busca', component: BuscaComponent },
+  { path: 'registroUsuario', component: RegistroListComponent },
   { path: 'registroEvento', component: RegistroEventoListComponent },
   { path: 'login', component: LoginUiComponent }
 ];

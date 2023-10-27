@@ -11,6 +11,8 @@ import { PrincipalModule } from './principal/principal.module';
 import { PerfilModule } from './perfil/perfil.module';
 import { ModalModule } from './modal/modal.module';
 import { BuscaModule } from './busca/busca.module';
+import { RegistroEventoModule } from './registro-evento/registro-evento.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +27,10 @@ import { BuscaModule } from './busca/busca.module';
     CoreModule,
     HttpClientModule,
     SecurityModule,
+    RegistroEventoModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

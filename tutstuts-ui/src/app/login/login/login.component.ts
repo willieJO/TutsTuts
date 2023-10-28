@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/security/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginUiComponent {
-  constructor(private messageService: MessageService, private auth: AuthService, private router: Router  ) {
+  constructor(private messageService: MessageService, 
+    private auth: AuthService, 
+    private router: Router,
+    private route: ActivatedRoute  ) {
 
    }  
    
@@ -33,8 +37,16 @@ export class LoginUiComponent {
       life: 2000
     });
   }
-  // TODO Ao realizar login, redirecionar apra a tela certa
   realizarLogin(){
+    if(this.login.email == "" || this.login.email == null) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Erro',
+        detail: 'O email e obrigatorio',
+        life: 2000
+      });
+      return;
+    }
     this.auth.login(this.login.email, this.login.senha)
     .then((e) => {
       this.messageService.add({

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.edu.tutstuts.model.Evento;
@@ -26,12 +27,25 @@ public class EventoService {
 		}
 		 _EventoRepository.save(evento);
 	}
-    
+    public void AtualizarEvento(Evento evento) {
+		_EventoRepository.save(evento);
+	}
     public List<Evento> ObterEventos() {
     	return _EventoRepository.findAll();
+    }
+	 public List<Evento> ObterEventosFiltrado(int id) {
+    	return _EventoRepository.ObterEventosFiltrado(id);
     }
     public List<Evento> BuscaEventosPeloNome(String pesquisa) {
     	return _EventoRepository.BuscaEventosPeloNome(pesquisa);
     }
+
+	public ResponseEntity<Evento> ObterEventoPorId(int id) {
+		Optional<Evento> evento =  _EventoRepository.findById((long)id);
+		if (evento.isPresent()) {
+			return ResponseEntity.ok(evento.get());
+		}
+		return ResponseEntity.notFound().build();
+	}
     
 }

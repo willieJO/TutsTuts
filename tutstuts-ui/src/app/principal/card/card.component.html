@@ -1,7 +1,17 @@
 <mat-card style="border-radius: 50px" class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+    <div mat-card-avatar [style.background-image]="'url(' + headerImageURL + ')'" class="example-header-image"></div>
+
+
     <mat-card-title>{{ title }}</mat-card-title>
+    <!-- Segundo parâmetro abaixo do título -->
+    <mat-card-subtitle>{{ localidade }}</mat-card-subtitle>
+    <div style=" display:flex; margin-left:10%;">
+      <mat-card-content>
+        {{ dataEvento }}
+        </mat-card-content>
+    </div>
+    
   </mat-card-header>
   <img
     style="margin-bottom: 10px"
@@ -10,15 +20,16 @@
     alt="Photo"
   />
   <mat-card-content>
+    <span>Link para adquirir o ingresso: <a href="https://{{ link }}">{{ link }}</a></span>
+  </mat-card-content>
+  <br>
+  <mat-card-content>
     <p>{{ content }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-icon-button (click)="toggleFavorito()" [@fadeInOut]>
-      <mat-icon>{{ isFavorito ? "favorite" : "favorite_border" }}</mat-icon>
-    </button>
-    <button mat-icon-button (click)= "openModal(id)">
-      <mat-icon>comment</mat-icon>
-    </button>
-    <mat-card-subtitle style="color: white">{{ likes }} curtidas</mat-card-subtitle>
+    <!-- 
+      Botões e ações adicionais podem ser adicionados aqui 
+    -->
   </mat-card-actions>
+
 </mat-card>

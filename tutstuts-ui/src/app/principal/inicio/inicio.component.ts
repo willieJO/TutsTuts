@@ -1,7 +1,8 @@
+import { PrincipalService } from './../principal.service';
 import { Component } from '@angular/core';
 import { CloudinaryService } from '../.././cloudinary.service';
 import { AuthService } from 'src/app/security/auth.service';
-
+import { Evento } from 'src/app/core/model';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -12,21 +13,30 @@ export class InicioComponent {
   teste: number | null = null;
   currentPage = 1;
   itemsPerPage = 3;
-  allCardDataList: any[] = [];
-  paginatedCardDataList: any[] = [];
+  allCardDataList: Evento[] = [];
+  paginatedCardDataList: Evento[] = [];
   loading: boolean = false;
   showLoading: boolean = false;
+  cardDataList: Evento[] = [];
 
-  constructor(private cloudinaryService: CloudinaryService, private auth: AuthService) {}
+  constructor(private cloudinaryService: CloudinaryService,
+     private auth: AuthService,
+     private principalService:PrincipalService) {}
 
   ngOnInit() {
-    this.allCardDataList = [...this.cardDataList];
-    this.loadNextPage();
-    window.onscroll = () => {
-      if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-        this.handleScroll();
-      }
-    };
+    this.principalService.obterEventos().then((data: Evento[]) => {
+      this.cardDataList = data;
+      this.allCardDataList = [...this.cardDataList];
+      this.loadNextPage();
+      window.onscroll = () => {
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+          this.handleScroll();
+        }
+      };
+    }).catch((error) => {
+      console.error('Ocorreu um erro ao obter os eventos: ', error);
+    });
+    
   }
 
   loadNextPage() {
@@ -39,12 +49,9 @@ export class InicioComponent {
       this.showLoading = true; // Ativar o indicador de carregamento
       this.loading = true;
       this.currentPage++;
-      setTimeout(() => {
-        this.loadNextPage();
-        this.loading = false;
-        this.showLoading = false; // Desativar o indicador de carregamento após carregar os dados
-      }, 10000); // Defina o atraso para 10000 milissegundos (ou 10 segundos)
-
+      this.loadNextPage();
+      this.loading = false;
+      this.showLoading = false; 
     }
   }
 
@@ -66,80 +73,5 @@ export class InicioComponent {
       console.error('Erro ao enviar imagem:', error);
     }
   }
-
-  // Dados iniciais
-  cardDataList = [
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-    {
-      id: 1,
-      title: 'Shiba Inu',
-      imageSrc: 'https://res.cloudinary.com/duondvpwq/image/upload/v1696896076/fcdkssdxswqseh8dpopp.jpg',
-      content: 'Texto de exemplo 1',
-      likes: 500
-    },
-
-    // Adicione mais objetos conforme necessário
-  ];
+  
 }

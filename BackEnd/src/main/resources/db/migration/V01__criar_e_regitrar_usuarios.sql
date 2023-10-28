@@ -28,11 +28,13 @@ CREATE TABLE evento (
    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     `nome` varchar(250),
 	`descricao` varchar(250),
-     `data_evento` date DEFAULT NULL,
-     `cnpj_empresa` INT(14),
-     `avaliacao` INT(2),
-     `ativo` INT(1),
-     `localidade` varchar(100),
+   `data_evento` date DEFAULT NULL,
+   `cnpj_empresa` INT(14),
+   `avaliacao` INT(2),
+   `ativo` INT(1),
+   `link` varchar(250),
+   `foto` varchar(512),
+   `localidade` varchar(100),
    `categoria` VARCHAR(25)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

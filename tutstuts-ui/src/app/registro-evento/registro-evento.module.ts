@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
+import { FileUploadModule } from 'primeng/fileupload';
 
 import { RegistroEventoListComponent } from './registro-evento-list/registro-evento-list.component';
 
@@ -12,6 +13,7 @@ import { RegistroEventoListComponent } from './registro-evento-list/registro-eve
   imports: [
     CommonModule,
     FormsModule,
+    FileUploadModule,
     ButtonModule,
     TooltipModule,
     ToastModule,

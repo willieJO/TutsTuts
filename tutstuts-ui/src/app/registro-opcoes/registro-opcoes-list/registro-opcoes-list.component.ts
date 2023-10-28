@@ -12,7 +12,7 @@ export class RegistroOpcoesListComponent {
   title = 'Escolha o seu tipo de Registro';
 
   registrarUsuario(){
-    this.router.navigate(['empresa']);
+    this.router.navigate(['registroUsuario']);
    }
    registrarUsuarioEmpresa(){
      this.router.navigate(['empresa']);

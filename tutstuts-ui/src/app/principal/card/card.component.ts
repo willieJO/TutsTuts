@@ -27,6 +27,10 @@ export class CardComponent {
   @Input() content: string = '';
   @Input() likes: number = 0;
   @Input() id: number = 0;
+  @Input() localidade: string = "";
+  @Input() link: string = "";
+  @Input() dataEvento: string = "";
+  @Input() headerImageURL: string = "";
 
   isFavorito: boolean = false;
 

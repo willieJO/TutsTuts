@@ -9,6 +9,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [LoginUiComponent],
   imports: [
@@ -16,6 +18,7 @@ import { MessagesModule } from 'primeng/messages';
     FormsModule,
     MessageModule,
     MessagesModule,
+    RouterModule,
     ToastModule,
     InputTextModule,
     TooltipModule,

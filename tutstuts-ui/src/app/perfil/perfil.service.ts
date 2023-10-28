@@ -22,6 +22,9 @@ export class PerfilService {
         'Content-Type': 'application/json'
       })
     };
+    if(localStorage.getItem("cnpj") != null) {
+      return this.http.put(this.baseUrl + `/Usuario/AtualizarEmpresa/${usuario.id}`, usuario, httpOptions).toPromise();
+    }
     return this.http.put(this.baseUrl + `/Usuario/UsuarioComum/${usuario.id}`, usuario, httpOptions).toPromise();
   } 
 }

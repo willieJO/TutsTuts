@@ -12,4 +12,17 @@ public interface EventoRepository extends JpaRepository<Evento,Long>{
 			  value = "SELECT * FROM evento e WHERE e.nome LIKE %?1%", 
 			  nativeQuery = true)
 	List<Evento> BuscaEventosPeloNome(String palavraChave);
+	@Query(
+			  value = "SELECT e.* \n" + //
+			  		"FROM evento e\n" + //
+			  		"INNER JOIN usuario u\n" + //
+			  		"ON u.id =  ?1\n" + //
+			  		"ORDER BY \n" + //
+			  		"  CASE \n" + //
+			  		"    WHEN e.categoria = u.categoria THEN 0 \n" + //
+			  		"    ELSE 1 \n" + //
+			  		"  END, e.categoria;\n" + //
+			  		"", 
+			  nativeQuery = true)
+	List<Evento> ObterEventosFiltrado(int id);
 }

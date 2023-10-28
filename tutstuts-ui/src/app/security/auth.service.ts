@@ -9,6 +9,7 @@ export class AuthService {
 
   oauthTokenUrl = 'http://localhost:8080/oauth/token';
   jwtPayload: any;
+  obterCnpfUrl = 'http://localhost:8080/Usuario/ObterCnpjEmpresa';
 
   constructor(
     private http: HttpClient,
@@ -29,6 +30,10 @@ export class AuthService {
       .then((response: any) => {
         console.log(response);
         this.storeToken(response[`access_token`]);
+        this.http.get(this.obterCnpfUrl + "/" + this.getUserIdFromToken()).toPromise()
+        .then((response: any) => {
+          localStorage.setItem('cnpj', response.cnpj);
+        });
       })
       .catch(response => {
         if (response.status === 400) {

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./slidebar.component.css']
 })
 export class SlidebarComponent {
+  cnpj: boolean  = localStorage.getItem('cnpj') != null ? true : false;
+
   constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
@@ -21,8 +23,13 @@ export class SlidebarComponent {
   toggleSidebar() {
     this.sidebarVisible = !this.sidebarVisible;
   }
+  goToAddEvent() {
+    this.router.navigate(['/registroEvento']);
+  }
   goToLoginPage() {
     localStorage.removeItem("token");
+    localStorage.removeItem("cnpj");
     this.router.navigate(["/login"])
   }
 }
+

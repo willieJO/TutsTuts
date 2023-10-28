@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'busca', component: BuscaComponent },
   { path: 'registroUsuario', component: RegistroListComponent },
   { path: 'registroEvento', component: RegistroEventoListComponent },
+  { path: 'registroEvento/:id', component: RegistroEventoListComponent },
   { path: 'empresa', component: RegistroEmpresaListComponent },
   { path: 'opcoes', component: RegistroOpcoesListComponent },
   { path: 'login', component: LoginUiComponent }

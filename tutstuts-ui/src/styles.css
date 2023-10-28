@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+.custom-addon,
+.custom-input {
+border: 1px solid #B379DF;
+background: linear-gradient(90.3deg, #3f044b 0.06%, #370352 101.62%);
+border-radius: 50px !important;
+}
+
+body {
+  background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+

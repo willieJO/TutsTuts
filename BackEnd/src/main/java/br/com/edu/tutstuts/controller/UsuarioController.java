@@ -57,16 +57,20 @@ public class UsuarioController {
 	
 	@PutMapping("AtualizarEmpresa/{id}")
 	public ResponseEntity<UsuarioEmpresa> updateEmpresa(@PathVariable Long id,
-			@Valid @RequestBody UsuarioEmpresa usuario, @RequestBody Boolean active){
-		UsuarioEmpresa userSaved = _service.updateEmpresa(id, usuario, active);
+			@Valid @RequestBody UsuarioEmpresa usuario){
+		UsuarioEmpresa userSaved = _service.updateEmpresa(id, usuario);
 		return ResponseEntity.ok(userSaved);
 	}
 	
-	@PutMapping("UsuarioComum/{id}/{active}")
+	@PutMapping("UsuarioComum/{id}")
 	public ResponseEntity<UsuarioComum> update(@PathVariable Long id,
-			@Valid @RequestBody UsuarioComum usuario, @RequestBody Boolean active){
-		UsuarioComum userSaved = _service.update(id, usuario, active);
+			@Valid @RequestBody UsuarioComum usuario){
+		UsuarioComum userSaved = _service.update(id, usuario);
 		return ResponseEntity.ok(userSaved);
+	}
+	@GetMapping("ObterCnpjEmpresa/{id}")
+	public ResponseEntity<UsuarioEmpresa> ObterCnpjEmpresa(@PathVariable Long id){
+		return _service.ObterCnpjEmpresa(id);
 	}
 	
 	@DeleteMapping("/{id}")

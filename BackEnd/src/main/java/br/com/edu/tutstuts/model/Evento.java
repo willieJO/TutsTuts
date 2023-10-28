@@ -28,6 +28,20 @@ public class Evento {
 	private LocalDate data_evento;
     private int avaliacao;
     private String localidade;
+    private String foto;
+    public String getFoto() {
+        return foto;
+    }
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+    public String getLink() {
+        return link;
+    }
+    public void setLink(String link) {
+        this.link = link;
+    }
+    private String link;
     private int ativo;
     private String categoria;
     @NotNull

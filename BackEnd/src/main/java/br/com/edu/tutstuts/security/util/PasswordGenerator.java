@@ -4,8 +4,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class PasswordGenerator {
 	public static void main(String[] args) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		var a = encoder.encode("admin");
-		var b = a.toString();
-		System.out.println(encoder.encode("client"));
+		var a = encoder.encode("123");
+		
+		System.out.println(a);
 	}
 }

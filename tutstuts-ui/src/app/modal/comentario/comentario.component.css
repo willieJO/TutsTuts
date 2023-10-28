@@ -1,0 +1,9 @@
+.modal{
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
+}
+
+.nova-mensagem {
+  top: 100%;
+}

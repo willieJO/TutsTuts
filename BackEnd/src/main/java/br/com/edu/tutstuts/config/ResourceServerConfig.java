@@ -22,8 +22,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-			.antMatchers("/Usuario/AdicionarUsuario").permitAll() // Permite acesso sem token a este endpoint
-            .antMatchers("/Usuario/AdicionarUsuarioEmpresa").permitAll() // Permite acesso sem token a outro endpoint
+			.antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
             .and()
                 .httpBasic()

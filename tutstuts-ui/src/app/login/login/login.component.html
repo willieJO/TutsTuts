@@ -1,0 +1,65 @@
+<p-toast></p-toast>
+
+
+<div class="center-container">
+    <div class="glass-container ">
+      <div class="p-grid">
+        <div class="col-12 text-center"> <!-- Use a classe "text-center" para centralizar o conteúdo horizontalmente -->
+          <img class="login-image img-fluid" src="https://imgur.com/MfHVuqH.png">
+          <!-- Use a classe "img-fluid" para tornar a imagem responsiva -->
+        </div>
+      </div>  
+    <div class="p-inputgroup">
+        <span class="p-inputgroup-addon custom-addon">
+          <i class="pi pi-envelope"></i>
+        </span>
+        <span class="p-float-label">
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="login.email"
+            placeholder="Email"
+            id="email"
+            tabindex="1"
+            class="custom-input"
+          />
+          <label for="email">Email</label>
+        </span>
+      </div>
+    <p></p>
+    <div class="p-inputgroup">
+        <span class="p-inputgroup-addon custom-addon">
+          <i class="iconKey pi pi-key"></i>
+        </span>
+        <span class="p-float-label">
+          <input
+            #passwordInput
+            type="{{ showPassword ? 'text' : 'password' }}"
+            pInputText
+            [(ngModel)]="login.senha"
+            placeholder="Senha"
+            id="password"
+            class="custom-input"
+            tabindex="2"
+          />
+          <i
+            class="pi"
+            [ngClass]="{'pi-eye': !showPassword, 'pi-eye-slash': showPassword}"
+            (click)="togglePasswordVisibility(passwordInput)"
+            style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+          ></i>
+          <label for="senha">Senha</label>
+
+        </span>
+
+      </div>
+
+    <p></p>
+    <button class="botaoEnviar" pButton pRipple label="Entrar" (click)="realizarLogin()"></button>
+    <p></p>
+    
+    <button [routerLink]="['/opcoes']" class="botaoEnviar" pButton pRipple label="Registrar" ></button>
+
+  </div>
+
+</div>

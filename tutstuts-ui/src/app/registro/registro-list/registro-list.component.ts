@@ -1,7 +1,6 @@
 import { RegistroserviceService } from './../../registro-empresa/registroservice.service';
 import { Component } from '@angular/core';
 import { RegistroUsuario } from 'src/app/core/model';
-import { RegistroserviceService } from 'src/app/registroservice/registroservice.service';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 

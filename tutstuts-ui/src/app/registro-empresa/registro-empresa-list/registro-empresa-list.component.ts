@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { RegistrarService } from '../../registerservice/registrar.service';
+import { RegistrarService } from 'src/app/registro/registrar.service';
 import { Usuario } from './../../core/model';
 
 @Component({

@@ -5,12 +5,9 @@
 .sidebar {
   width: 200px; /* Ajuste a largura conforme necessário */
   height: 100vh; /* Ajuste a altura conforme necessário */
-  background-color: #0e1214;/* Cor de fundo desejada para o menu */
+  background-color: #f4f4f4; /* Cor de fundo desejada para o menu */
   padding: 10px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra desejada, se necessário */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .login-image {
@@ -23,7 +20,6 @@
 
 .mat-list-item {
   cursor: pointer;
-  color: white; /* Definindo a cor do texto para branco */
 }
 
 .mat-list-item:hover {
@@ -32,20 +28,11 @@
 
 .logout-container {
   cursor: pointer;
+  margin-top: 20px;
   display: flex;
   align-items: center;
-  color: white; /* Definindo a cor do texto para branco */
-}
-span {
-  color: white; /* Definindo a cor dos links para branco */
-}
-.sidebar a {
-  color: white; /* Definindo a cor dos links para branco */
 }
 
-.sidebar mat-icon {
-  color: white; /* Definindo a cor dos ícones para branco */
-}
-.sidebar-footer {
-  margin-top: auto;
+.logout-container mat-icon {
+  margin-right: 10px;
 }

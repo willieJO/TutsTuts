@@ -3,11 +3,11 @@ import { AuthService } from '../../security/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-slidebar',
-  templateUrl: './slidebar.component.html',
-  styleUrls: ['./slidebar.component.css']
+  selector: 'app-slidebarmobile',
+  templateUrl: './slidebarmobile.component.html',
+  styleUrls: ['./slidebarmobile.component.css']
 })
-export class SlidebarComponent {
+export class SlidebarmobileComponent {
   cnpj: boolean  = localStorage.getItem('cnpj') != null ? true : false;
 
   constructor(public authService: AuthService, private router: Router) {}
@@ -32,4 +32,3 @@ export class SlidebarComponent {
     this.router.navigate(["/login"])
   }
 }
-

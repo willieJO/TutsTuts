@@ -27,9 +27,10 @@
     <p>{{ content }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <!--
-      Botões e ações adicionais podem ser adicionados aqui
-    -->
+    <button mat-icon-button (click)="toggleFavorito(id)" [@fadeInOut]>
+      <mat-icon>{{ curtiuEvento ? "favorite" : "favorite_border" }}</mat-icon>
+    </button>
+    <mat-card-subtitle style="color: white">{{ likes }} curtidas</mat-card-subtitle>
   </mat-card-actions>
 
 </mat-card>

@@ -25,4 +25,12 @@ public interface EventoRepository extends JpaRepository<Evento,Long>{
 			  		"", 
 			  nativeQuery = true)
 	List<Evento> ObterEventosFiltrado(int id);
+	
+	@Query(
+			  value = "SELECT COUNT(*) FROM evento e\n"
+			  		+ "INNER JOIN curtidas_x_evento cxe\n"
+			  		+ "on cxe.evento_id = e.id\n"
+			  		+ "where e.id = ?1 and is_curtiu = 1", 
+			  nativeQuery = true)
+	int ObterQuantidadeDeCurtidasDoEvento(long id);
 }

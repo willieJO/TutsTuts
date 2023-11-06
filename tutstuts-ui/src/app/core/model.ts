@@ -12,6 +12,7 @@ export class Evento {
     categoria: string;
     link: string;
     foto: string;
+    curtidasDoEvento: number;
     user: {
         id: number | null;
         nome: string;
@@ -21,6 +22,31 @@ export class Evento {
         this.user = {id: null, nome: "", foto: ""};
         this.foto = "https://res.cloudinary.com/duondvpwq/image/upload/v1698469139/qc8gjncpj9bgakja7llv.gif"
     }
+}
+
+export class EventoCard {
+  id: number | null;
+  nome: string;
+  descricao: string;
+  data_evento: string | null;
+  cnpj_empresa: number;
+  avaliacao: number;
+  ativo: number;
+  localidade: string;
+  categoria: string;
+  curtiu: boolean;
+  link: string;
+  foto: string;
+  curtidasDoEvento: number;
+  user: {
+      id: number | null;
+      nome: string;
+      foto: string;
+  };
+  constructor() {
+      this.user = {id: null, nome: "", foto: ""};
+      this.foto = "https://res.cloudinary.com/duondvpwq/image/upload/v1698469139/qc8gjncpj9bgakja7llv.gif"
+  }
 }
 
 
@@ -57,3 +83,11 @@ export class RegistroUsuario {
         this.foto = 'https://res.cloudinary.com/duondvpwq/image/upload/v1697344132/uexc4falwmplpyz0xmrx.jpg';
     }
 }
+
+export class Curtida {
+  id: number;
+  usuario_id: number;
+  evento_id: number;
+  is_curtiu: boolean;
+}
+

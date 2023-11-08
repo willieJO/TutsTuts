@@ -8,9 +8,10 @@ import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { FormsModule } from '@angular/forms';
+import { ListaCurtidaComponent } from './lista-curtida/lista-curtida.component';
 
 @NgModule({
-  declarations: [PerfilComponent],
+  declarations: [PerfilComponent, ListaCurtidaComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,8 +21,7 @@ import { FormsModule } from '@angular/forms';
     MessagesModule,
     MessageModule,
     InputTextModule,
-
   ],
-  exports: [PerfilComponent]
+  exports: [PerfilComponent, ListaCurtidaComponent],
 })
-export class PerfilModule { }
+export class PerfilModule {}

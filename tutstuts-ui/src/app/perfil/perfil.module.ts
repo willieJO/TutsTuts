@@ -9,9 +9,10 @@ import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { FormsModule } from '@angular/forms';
 import { ListaCurtidaComponent } from './lista-curtida/lista-curtida.component';
+import { CardComponent } from '../principal/card/card.component';
 
 @NgModule({
-  declarations: [PerfilComponent, ListaCurtidaComponent],
+  declarations: [PerfilComponent, ListaCurtidaComponent, CardComponent],
   imports: [
     CommonModule,
     FormsModule,

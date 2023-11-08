@@ -42,7 +42,7 @@ export class PerfilService {
   obterEventos(): Promise<any> {
     return this.http
       .get(
-        this.baseUrl + '/Evento/ObterEventos' + this.auth.getUserIdFromToken()
+        this.baseUrl + '/Evento/ObterEventos/' + this.auth.getUserIdFromToken()
       )
       .toPromise();
   }
@@ -50,7 +50,7 @@ export class PerfilService {
     return this.http
       .get(
         this.baseUrl +
-          '/Curtida/ObterEventosCurtidoPeloUsuario' +
+          '/Curtida/ObterEventosCurtidoPeloUsuario/' +
           this.auth.getUserIdFromToken()
       )
       .toPromise();

@@ -14,6 +14,9 @@ import { CardModule } from 'primeng/card';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CloudinaryModule } from '@cloudinary/ng';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [PerfilComponent, ListaCurtidaComponent, CardComponent],
@@ -30,7 +33,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatIconModule,
     CardModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
+    CloudinaryModule,
+    MatButtonModule,
   ],
-  exports: [PerfilComponent, ListaCurtidaComponent],
+  exports: [PerfilComponent],
 })
 export class PerfilModule {}

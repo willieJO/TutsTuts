@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Usuario } from '../core/model';
+import { Curtida, Usuario } from '../core/model';
 import { Observable } from 'rxjs';
 import { AuthService } from '../security/auth.service';
 
@@ -54,5 +54,12 @@ export class PerfilService {
           this.auth.getUserIdFromToken()
       )
       .toPromise();
+  }
+  curtirEvento(curtida: Curtida) {
+    const idUsuario = this.auth.getUserIdFromToken();
+    if (idUsuario) {
+      curtida.usuario_id = idUsuario;
+    }
+    this.http.post(this.baseUrl + '/Curtida/CurtirEvento', curtida).toPromise();
   }
 }

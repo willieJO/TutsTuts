@@ -15,6 +15,7 @@ export class ListaCurtidaComponent {
   currentPage = 1;
   itemsPerPage = 3;
   allCardDataList: EventoCard[] = [];
+  eventosCurtidos: EventoCard[] = [];
   paginatedCardDataList: EventoCard[] = [];
   loading: boolean = false;
   showLoading: boolean = false;
@@ -37,9 +38,15 @@ export class ListaCurtidaComponent {
             this.allCardDataList = [...this.cardDataList];
 
             this.allCardDataList.forEach((x) => {
+              // console.log(x.curtiu);
+              // if (x.curtiu && x != undefined) {
+              //   console.log('opa');
+              //   this.eventosCurtidos.push(x);
+              // }
               dataCurtida.forEach((y) => {
                 if (x.id == y.evento_id) {
                   x.curtiu = y.is_curtiu;
+                  this.eventosCurtidos.push(x);
                 }
               });
             });
@@ -74,7 +81,7 @@ export class ListaCurtidaComponent {
 
   loadNextPage() {
     const endIndex = this.currentPage * this.itemsPerPage;
-    this.paginatedCardDataList = this.allCardDataList.slice(0, endIndex);
+    this.paginatedCardDataList = this.eventosCurtidos.slice(0, endIndex);
   }
 
   handleScroll() {

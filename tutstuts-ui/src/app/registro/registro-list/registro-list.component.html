@@ -10,7 +10,7 @@
       <br>
       <div class="login">
         <form>
-          <h2>{{ title }}</h2>
+          <h2>{{ title }}</h2><br>
           <div class="form-group">
             <label for="nome">Nome:</label>
             <input type="text"
@@ -60,6 +60,8 @@
           </div>
           <button class="btn" pButton pRipple label="Registrar" (click)="enviar()"></button>
         </form>
+       <br> <h3>Já possui cadastro? <a (click)="login()">Faça o Login</a></h3>
+
       </div>
     </div>
   </div>

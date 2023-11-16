@@ -9,18 +9,13 @@
     <mat-card-title>{{ title }}</mat-card-title>
     <!-- Segundo parâmetro abaixo do título -->
     <mat-card-subtitle>{{ localidade }}</mat-card-subtitle>
-    <div style="display: flex; margin-left: 40%">
+    <div class="data-evento">
       <mat-card-content>
         {{ dataEvento }}
       </mat-card-content>
     </div>
   </mat-card-header>
-  <img
-    style="margin-bottom: 10px"
-    mat-card-image
-    [src]="imageSrc"
-    alt="Photo"
-  />
+  <img class="img-responsive" mat-card-image [src]="imageSrc" alt="Photo" />
   <mat-card-content>
     <span
       >Link para adquirir o ingresso:

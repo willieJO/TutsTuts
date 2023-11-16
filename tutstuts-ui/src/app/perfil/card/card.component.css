@@ -1,13 +1,28 @@
 .example-card {
-    max-width: 90%;
-    min-height: 38%;
-    background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
-    margin-top: 8%;
+  max-width: 90%;
+  min-height: 38%;
+  background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
+  margin-top: 8%;
+}
+
+.data-evento {
+  display: flex;
+  margin-left: 20%;
+}
+
+@media screen and (max-width: 680px) {
+  .data-evento {
+    display: flex;
+    margin-left: 0%;
   }
 
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+  .img-responsive {
+    width: 100%;
+    margin-bottom: 5px;
   }
+}
 
-
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}

@@ -1,6 +1,5 @@
 .example-card {
-    max-width: 90%;
-    min-height: 38%;
+   max-width: 370px;
     background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
     margin-top: 8%;
   }

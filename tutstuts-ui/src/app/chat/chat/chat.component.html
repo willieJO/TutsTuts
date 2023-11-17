@@ -1,0 +1,39 @@
+<!-- chat.component.html -->
+
+<div class="chat-container">
+    <div class="chat-header" (click)="toggleUserList()">
+      <div class="chat-title">CHAT</div>
+    </div>
+    <div class="user-list" [class.hidden]="!showUserList">
+      <div class="user" *ngFor="let user of users" (click)="openChat(user)">
+        <img [src]="user.avatar" alt="{{ user.name }}" class="user-avatar">
+        {{ user.name }}
+      </div>
+    </div>
+    <div *ngIf="selectedUser" class="overlay">
+      <div class="chat-content">
+        <div class="chat-header-inner">
+          <img [src]="selectedUser.avatar" alt="{{ selectedUser.name }}" class="user-avatar">
+          <div class="user-info">
+            <div class="user-name">{{ selectedUser.name }}</div>
+          </div>
+          <button class="close-button" (click)="closeChat()">Voltar</button>
+        </div>
+        <div class="messages-container">
+          <div class="message" *ngFor="let message of messages">
+            <div class="message-info" [ngClass]="{'info-left': message.sender !== currentUser, 'info-right': message.sender === currentUser}">
+              <div class="timestamp">{{ message.timestamp | date: 'dd/MM/yyyy HH:mm' }}</div>
+            </div>
+            <div [ngClass]="{'message-left': message.sender !== currentUser, 'message-right': message.sender === currentUser}">
+              {{ message.text }}
+            </div>
+          </div>
+        </div>
+        <div class="message-input">
+          <input [(ngModel)]="newMessage" placeholder="Digite sua mensagem">
+          <button (click)="sendMessage()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

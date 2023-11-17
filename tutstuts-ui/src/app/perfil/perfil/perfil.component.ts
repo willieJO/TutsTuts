@@ -17,6 +17,13 @@ export class PerfilComponent {
   fotoOriginal: string;
   editedUsuario: Usuario; // Para armazenar as alterações temporárias
   @ViewChild('fileInput') fileInput!: ElementRef;
+  categorias = [
+    { label: 'Nenhum', value: 'NENHUM' },
+    { label: 'Festival', value: 'FESTIVAL' },
+    { label: 'Show', value: 'SHOW' },
+    { label: 'Palestra', value: 'PALESTRA' },
+    { label: 'Musical', value: 'MUSICAL' }
+  ];
 
   constructor(private messageService: MessageService, private perfilService: PerfilService, private cloudinaryService:CloudinaryService) {}
 
@@ -29,29 +36,29 @@ export class PerfilComponent {
       this.fileInput.nativeElement.click();
     }
   }
-  
+
   selectFile() {
     const fileInput = document.getElementById('file-input');
     if (fileInput) {
       fileInput.click();
     }
   }
- 
-  
+
+
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
-    
+
      this.cloudinaryService.uploadImage(file).then((response:any) =>{
         this.editedUsuario.foto = response.secure_url;
      }).catch((e: any) =>{
       console.error('Erro ao fazer upload da imagem: ', e);
      })
   }
-  
+
   carregarDadosUsuario() {
     this.perfilService.obterUsuarioPorId().subscribe((user: Usuario) => {
       this.usuario = { ...user };
-      this.editedUsuario = { ...user }; 
+      this.editedUsuario = { ...user };
       this.fotoOriginal = this.usuario.foto;
     });
   }
@@ -62,7 +69,7 @@ export class PerfilComponent {
 
   cancelEditing() {
     this.isEditing = false;
-    this.editedUsuario = { ...this.usuario }; 
+    this.editedUsuario = { ...this.usuario };
   }
 
   saveChanges() {
@@ -93,7 +100,7 @@ export class PerfilComponent {
       }
     }
   }
-  
+
   removeOverlay() {
     if (this.isEditing) {
       this.showIcon = false;

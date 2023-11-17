@@ -12,12 +12,23 @@ import { Router } from '@angular/router';
 })
 
 export class RegistroListComponent {
+
   title = 'Registro Usuário';
   value = '';
+
+  categorias = [
+    { label: 'Nenhum', value: 'NENHUM' },
+    { label: 'Festival', value: 'FESTIVAL' },
+    { label: 'Show', value: 'SHOW' },
+    { label: 'Palestra', value: 'PALESTRA' },
+    { label: 'Musical', value: 'MUSICAL' }
+  ];
+
   constructor(public registroserviceService: RegistroserviceService,
     private messageService: MessageService,
     private router:Router
     ) {}
+
   registro = new RegistroUsuario();
 
     enviar() {

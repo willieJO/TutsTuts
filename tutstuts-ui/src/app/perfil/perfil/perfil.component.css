@@ -3,3 +3,16 @@
   border-radius: 15px;
   width: 100%;
 }
+
+select option {
+  background-color: #3f044b;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #B379DF;
+  border-radius: 5px;
+  background: linear-gradient(90.3deg, #3f044b 0.06%, #370352 101.62%);
+  color: white; /* Adicionando cor de texto branco */
+}

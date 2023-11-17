@@ -14,6 +14,13 @@ export class RegistroEventoListComponent {
   title = 'Registro Evento';
   value = '';
   uploadedFiles: any[] = [];
+  categorias = [
+    { label: 'Nenhum', value: 'NENHUM' },
+    { label: 'Festival', value: 'FESTIVAL' },
+    { label: 'Show', value: 'SHOW' },
+    { label: 'Palestra', value: 'PALESTRA' },
+    { label: 'Musical', value: 'MUSICAL' }
+  ];
   constructor(
     public eventoserviceService: RegistroEventoServiceService,
     private router:Router,

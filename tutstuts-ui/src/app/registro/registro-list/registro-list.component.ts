@@ -37,5 +37,10 @@ export class RegistroListComponent {
     }
 
 
+    login() {
 
+      this.router.navigate(['/login']); // Redireciona após o segundo setTimeout
+
+
+    }
 }

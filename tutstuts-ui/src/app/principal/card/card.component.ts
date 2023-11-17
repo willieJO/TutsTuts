@@ -26,6 +26,7 @@ export class CardComponent {
   @Input() imageSrc: string = '';
   @Input() content: string = '';
   @Input() likes: number = 0;
+  @Input() nome: string= '';
   @Input() id: number = 0;
   @Input() localidade: string = "";
   @Input() link: string = "";
@@ -38,7 +39,7 @@ export class CardComponent {
     this.isFavorito = !this.isFavorito;
   }
   openModal(id:number) {
-    
+
     const dialogRef = this.dialog.open(ComentarioComponent, {
       data: { cardId: id }
     });

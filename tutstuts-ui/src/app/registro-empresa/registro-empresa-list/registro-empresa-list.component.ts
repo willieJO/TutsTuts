@@ -17,7 +17,7 @@ export class RegistroEmpresaListComponent {
     private router: Router, public messageService: MessageService) {}
   registro = new Usuario();
 
-  enviar() {      
+  enviar() {
     this.registroService.registroempresa(this.registro)
       .then((response) => {
         setTimeout(() => {
@@ -33,8 +33,13 @@ export class RegistroEmpresaListComponent {
         }, 100);
       });
   }
-  
-  
+  login() {
+
+    this.router.navigate(['/login']); // Redireciona após o segundo setTimeout
+
+
+  }
+
   }
 
 

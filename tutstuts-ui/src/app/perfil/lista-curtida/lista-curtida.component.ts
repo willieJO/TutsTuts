@@ -20,6 +20,7 @@ export class ListaCurtidaComponent {
   loading: boolean = false;
   showLoading: boolean = false;
   cardDataList: EventoCard[] = [];
+  isLike = false;
 
   constructor(
     private cloudinaryService: CloudinaryService,
@@ -38,15 +39,11 @@ export class ListaCurtidaComponent {
             this.allCardDataList = [...this.cardDataList];
 
             this.allCardDataList.forEach((x) => {
-              // console.log(x.curtiu);
-              // if (x.curtiu && x != undefined) {
-              //   console.log('opa');
-              //   this.eventosCurtidos.push(x);
-              // }
               dataCurtida.forEach((y) => {
                 if (x.id == y.evento_id) {
                   x.curtiu = y.is_curtiu;
                   this.eventosCurtidos.push(x);
+                  this.isLike = true;
                 }
               });
             });

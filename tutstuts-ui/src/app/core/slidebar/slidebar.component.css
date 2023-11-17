@@ -3,18 +3,19 @@
 }
 
 .sidebar {
-  width: 200px; /* Ajuste a largura conforme necessário */
+  width: 230px; /* Ajuste a largura conforme necessário */
   height: 100vh; /* Ajuste a altura conforme necessário */
-  background-color: #0e1214;/* Cor de fundo desejada para o menu */
+  background-color: #2c0234;/* Cor de fundo desejada para o menu */
   padding: 10px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra desejada, se necessário */
+  box-shadow: 2px 4px 50px rgba(190, 18, 224, 0.1); /* Sombra desejada, se necessário */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position:fixed;
 }
 
 .login-image {
-  width: 100px; /* Ajuste a largura da imagem conforme necessário */
+  width: 150px; /* Ajuste a largura da imagem conforme necessário */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -25,7 +26,9 @@
   cursor: pointer;
   color: white; /* Definindo a cor do texto para branco */
 }
-
+.mat-icon{
+  margin-left: 5px;
+}
 .mat-list-item:hover {
   background-color: #e4e4e4; /* Cor de fundo desejada ao passar o mouse sobre os itens do menu */
 }

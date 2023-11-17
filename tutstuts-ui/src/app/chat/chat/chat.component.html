@@ -21,11 +21,11 @@
         </div>
         <div class="messages-container">
           <div class="message" *ngFor="let message of messages">
-            <div class="message-info" [ngClass]="{'info-left': message.sender !== currentUser, 'info-right': message.sender === currentUser}">
-              <div class="timestamp">{{ message.timestamp | date: 'dd/MM/yyyy HH:mm' }}</div>
+            <div class="message-info" [ngClass]="{'info-left': message.id_usuario_destino !== currentUser, 'info-right': message.id_usuario_destino === currentUser}">
+              <div class="timestamp">{{ message.data | date: 'dd/MM/yyyy HH:mm' }}</div>
             </div>
-            <div [ngClass]="{'message-left': message.sender !== currentUser, 'message-right': message.sender === currentUser}">
-              {{ message.text }}
+            <div [ngClass]="{'message-left': message.id_usuario_destino !== currentUser, 'message-right': message.id_usuario_destino === currentUser}">
+              {{ message.mensagem }}
             </div>
           </div>
         </div>
@@ -36,4 +36,3 @@
       </div>
     </div>
   </div>
-  

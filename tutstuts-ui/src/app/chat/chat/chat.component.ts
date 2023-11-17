@@ -1,17 +1,11 @@
-// chat.component.ts
-
+import { WebSocketService } from './../../web-socket.service';
 import { Component, OnInit } from '@angular/core';
-
+import { Message } from 'src/app/core/model';
 interface User {
   name: string;
   avatar: string;
 }
 
-interface Message {
-  sender: string;
-  text: string;
-  timestamp: number;
-}
 
 @Component({
   selector: 'app-chat',
@@ -19,21 +13,24 @@ interface Message {
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
+  constructor(private webSocketService: WebSocketService ) {}
+
   ngOnInit(): void {
-    this.simulateReceivedMessage();
+    try {
+      this.webSocketService.getMessages().subscribe((message : any) => {
+        this.messages.push(message);
+      });
+    } catch(e) {
+      console.log(e);
+    }
+
   }
 
   showUserList = true;
   selectedUser: User | null = null;
-  currentUser = 'Usuário Atual';
+  currentUser = 1;
   newMessage = '';
   messages: Message[] = [];
-
-  simulateReceivedMessage() {
-    const now = new Date().getTime();
-    const simulatedSender = 'user 1'; // Simulando que a mensagem foi recebida do usuário selecionado
-    this.messages.push({ sender: simulatedSender, text: 'Mensagem simulada', timestamp: now });
-  }
 
   users: User[] = [
     { name: 'User 1', avatar: 'https://res.cloudinary.com/duondvpwq/image/upload/v1697344132/uexc4falwmplpyz0xmrx.jpg' },
@@ -56,7 +53,7 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     if (this.selectedUser) {
       const now = new Date().getTime();
-      this.messages.push({ sender: this.currentUser, text: this.newMessage, timestamp: now });
+      this.webSocketService.sendMessage({ mensagem: this.newMessage, data: now, id_usuario_destino: 2, id_usuario_origem: 1 });
       this.newMessage = '';
     }
   }

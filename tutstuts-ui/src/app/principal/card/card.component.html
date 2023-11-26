@@ -5,13 +5,13 @@
 
     <mat-card-title>{{ title }}</mat-card-title>
     <!-- Segundo parâmetro abaixo do título -->
-    <mat-card-subtitle>{{ localidade }}</mat-card-subtitle>
-    <div style=" display:flex; margin-left:10%;">
-      <mat-card-content>
+    <mat-card-subtitle style="color: white;">{{ localidade }}</mat-card-subtitle>
+    <div style=" display:flex;">
+      <mat-card-content style="text-align: right; margin-left: 350px;">
         {{ dataEvento }}
         </mat-card-content>
     </div>
-    
+
   </mat-card-header>
   <img
     style="margin-bottom: 10px"
@@ -20,6 +20,9 @@
     alt="Photo"
   />
   <mat-card-content>
+    <p class="nomeFesta">{{ nome }}</p>
+  </mat-card-content>
+  <mat-card-content><br><br>
     <span>Link para adquirir o ingresso: <a href="https://{{ link }}">{{ link }}</a></span>
   </mat-card-content>
   <br>
@@ -27,8 +30,8 @@
     <p>{{ content }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <!-- 
-      Botões e ações adicionais podem ser adicionados aqui 
+    <!--
+      Botões e ações adicionais podem ser adicionados aqui
     -->
   </mat-card-actions>
 

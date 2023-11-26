@@ -1,21 +1,23 @@
 
 .card-container {
-    margin-top: 8%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
-    
-  }
-  .loading-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3%;
-  }
-  
-  .custom-spinner {
-    width: 10px;
-    height: 10px;
-  }
-  
+  margin-top: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap; /* Garante que os cards vão para a linha abaixo quando não há espaço suficiente */
+  justify-content: center;
+}
+
+.loading-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.custom-spinner {
+  width: 100px;
+  height: 100px;
+}
+

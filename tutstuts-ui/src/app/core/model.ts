@@ -12,7 +12,7 @@ export class Evento {
     categoria: string;
     link: string;
     foto: string;
-    user: { 
+    user: {
         id: number | null;
         nome: string;
         foto: string;

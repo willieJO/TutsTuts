@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  flex: 0 0 200px; /* Largura fixa da barra lateral */
+  background-color: #0e1214;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  flex: 1; /* O conteúdo ocupará todo o espaço restante */
+}

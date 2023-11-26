@@ -1,0 +1,38 @@
+.sidebar-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px; /* Ajuste a largura conforme necessário */
+  height: 100vh; /* Ajuste a altura conforme necessário */
+  background-color: #f4f4f4; /* Cor de fundo desejada para o menu */
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra desejada, se necessário */
+}
+
+.login-image {
+  width: 100px; /* Ajuste a largura da imagem conforme necessário */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.mat-list-item {
+  cursor: pointer;
+}
+
+.mat-list-item:hover {
+  background-color: #e4e4e4; /* Cor de fundo desejada ao passar o mouse sobre os itens do menu */
+}
+
+.logout-container {
+  cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logout-container mat-icon {
+  margin-right: 10px;
+}

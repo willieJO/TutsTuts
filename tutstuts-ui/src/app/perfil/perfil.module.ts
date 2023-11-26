@@ -8,9 +8,18 @@ import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { FormsModule } from '@angular/forms';
+import { ListaCurtidaComponent } from './lista-curtida/lista-curtida.component';
+import { CardComponent } from './card/card.component';
+import { CardModule } from 'primeng/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CloudinaryModule } from '@cloudinary/ng';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [PerfilComponent],
+  declarations: [PerfilComponent, ListaCurtidaComponent, CardComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,8 +29,14 @@ import { FormsModule } from '@angular/forms';
     MessagesModule,
     MessageModule,
     InputTextModule,
-
+    MatCardModule,
+    MatIconModule,
+    CardModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    CloudinaryModule,
+    MatButtonModule,
   ],
-  exports: [PerfilComponent]
+  exports: [PerfilComponent],
 })
-export class PerfilModule { }
+export class PerfilModule {}

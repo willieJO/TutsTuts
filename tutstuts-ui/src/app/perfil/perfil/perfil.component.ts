@@ -8,7 +8,7 @@ import { CloudinaryService } from 'src/app/cloudinary.service';
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   providers: [MessageService],
-  styleUrls: ['./perfil.component.css']
+  styleUrls: ['./perfil.component.css'],
 })
 export class PerfilComponent {
   usuario: Usuario;
@@ -18,7 +18,11 @@ export class PerfilComponent {
   editedUsuario: Usuario; // Para armazenar as alterações temporárias
   @ViewChild('fileInput') fileInput!: ElementRef;
 
-  constructor(private messageService: MessageService, private perfilService: PerfilService, private cloudinaryService:CloudinaryService) {}
+  constructor(
+    private messageService: MessageService,
+    private perfilService: PerfilService,
+    private cloudinaryService: CloudinaryService
+  ) {}
 
   ngOnInit() {
     this.carregarDadosUsuario();
@@ -29,29 +33,31 @@ export class PerfilComponent {
       this.fileInput.nativeElement.click();
     }
   }
-  
+
   selectFile() {
     const fileInput = document.getElementById('file-input');
     if (fileInput) {
       fileInput.click();
     }
   }
- 
-  
+
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
-    
-     this.cloudinaryService.uploadImage(file).then((response:any) =>{
+
+    this.cloudinaryService
+      .uploadImage(file)
+      .then((response: any) => {
         this.editedUsuario.foto = response.secure_url;
-     }).catch((e: any) =>{
-      console.error('Erro ao fazer upload da imagem: ', e);
-     })
+      })
+      .catch((e: any) => {
+        console.error('Erro ao fazer upload da imagem: ', e);
+      });
   }
-  
+
   carregarDadosUsuario() {
     this.perfilService.obterUsuarioPorId().subscribe((user: Usuario) => {
       this.usuario = { ...user };
-      this.editedUsuario = { ...user }; 
+      this.editedUsuario = { ...user };
       this.fotoOriginal = this.usuario.foto;
     });
   }
@@ -62,27 +68,30 @@ export class PerfilComponent {
 
   cancelEditing() {
     this.isEditing = false;
-    this.editedUsuario = { ...this.usuario }; 
+    this.editedUsuario = { ...this.usuario };
   }
 
   saveChanges() {
     this.isEditing = false;
     this.usuario = { ...this.editedUsuario };
-    this.perfilService.atualizarUsuario(this.usuario).then((response) => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Sucesso',
-        detail: 'Informações atualizadas com sucesso.',
-        life: 2000
+    this.perfilService
+      .atualizarUsuario(this.usuario)
+      .then((response) => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: 'Informações atualizadas com sucesso.',
+          life: 2000,
+        });
+      })
+      .catch((erro) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro',
+          detail: 'Erro interno, consulte o suporte',
+          life: 2000,
+        });
       });
-    }).catch((erro) => {
-      this.messageService.add({
-        severity: 'error',
-        summary: 'Erro',
-        detail: 'Erro interno, consulte o suporte',
-        life: 2000
-      });
-    });
   }
   addOverlay() {
     if (this.isEditing) {
@@ -93,7 +102,7 @@ export class PerfilComponent {
       }
     }
   }
-  
+
   removeOverlay() {
     if (this.isEditing) {
       this.showIcon = false;

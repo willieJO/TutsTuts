@@ -61,4 +61,13 @@
     </div>
   </div>
 </div>
+<!-- Eventos Curtidos pelo usuario! -->
+<app-lista-curtida></app-lista-curtida>
+<input
+  type="file"
+  #fileInput
+  accept="image/png, image/jpeg"
+  style="display: none"
+  (change)="onFileSelected($event)"
+/>
 <input type="file" #fileInput accept="image/png, image/jpeg" style="display: none;" (change)="onFileSelected($event)">

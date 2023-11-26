@@ -31,10 +31,24 @@ public class EventoService {
 		_EventoRepository.save(evento);
 	}
     public List<Evento> ObterEventos() {
-    	return _EventoRepository.findAll();
+    	List<Evento> eventos =  _EventoRepository.findAll();
+    	if (eventos.size() > 0) {
+    		eventos.stream()
+    			.forEach(x -> {
+    				x.setCurtidasDoEvento(_EventoRepository.ObterQuantidadeDeCurtidasDoEvento(x.getId()));
+    			});
+    	}
+    	return eventos;
     }
 	 public List<Evento> ObterEventosFiltrado(int id) {
-    	return _EventoRepository.ObterEventosFiltrado(id);
+		 List<Evento> eventos = _EventoRepository.ObterEventosFiltrado(id);
+    	 if (eventos.size() > 0) {
+     		eventos.stream()
+     			.forEach(x -> {
+     				x.setCurtidasDoEvento(_EventoRepository.ObterQuantidadeDeCurtidasDoEvento(x.getId()));
+     			});
+     	}
+    	return eventos;
     }
     public List<Evento> BuscaEventosPeloNome(String pesquisa) {
     	return _EventoRepository.BuscaEventosPeloNome(pesquisa);

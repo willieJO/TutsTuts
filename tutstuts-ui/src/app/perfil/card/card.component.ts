@@ -31,6 +31,7 @@ export class CardComponent implements OnInit {
   @Input() id: number = 0;
   @Input() localidade: string = '';
   @Input() link: string = '';
+  @Input() nome: string= '';
   @Input() dataEvento: string = '';
   @Input() headerImageURL: string = '';
   @Input() curtiuEvento: boolean;

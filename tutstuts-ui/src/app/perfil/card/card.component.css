@@ -1,9 +1,12 @@
 .example-card {
-  max-width: 90%;
-  min-height: 38%;
-  background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
-  margin-top: 8%;
-}
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(90.3deg, #660779 50.6%, #2a023f 101.62%);
+  margin-top: 4%;
+  box-shadow: 0px 5px 40px #d07ee4;
+
+  }
 
 .data-evento {
   display: flex;

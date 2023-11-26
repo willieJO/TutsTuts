@@ -15,7 +15,7 @@ public interface CurtidaRepository extends JpaRepository<Curtida,Long>{
 	Optional<Curtida> BuscaCurtidaDoUsuarioNesseEvento(long usuario_id, long evento_id);
 	
 	@Query(
-			  value = "SELECT * FROM curtidas_x_evento c WHERE c.usuario_id = ?1", 
+			  value = "SELECT * FROM curtidas_x_evento c WHERE c.usuario_id = ?1 AND c.is_curtiu = 1", 
 			  nativeQuery = true)
 	List<Curtida> ObterEventosCurtidoPeloUsuario(int id);
 	

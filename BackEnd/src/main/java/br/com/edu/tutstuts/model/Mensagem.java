@@ -2,6 +2,7 @@ package br.com.edu.tutstuts.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Mensagem {
 	private long id;
 	@NotNull
 	@JsonFormat(pattern = "dd/MM/yyyy")
+	@Column(name = "data")
 	private LocalDate data_mensagem;
     private int id_usuario_origem;
     private int id_usuario_destino;

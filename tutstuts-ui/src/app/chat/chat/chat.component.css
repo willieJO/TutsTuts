@@ -8,6 +8,7 @@
     border: 1px solid #000;
     border-radius: 5px;
     width: 300px;
+    max-height: 500px;
   }
   
   .chat-header {
@@ -23,9 +24,22 @@
   .chat-title {
     font-size: 18px;
   }
+  .enviaMensagem {
+    border-color: linear-gradient(90.3deg, #B379DF 0.16%, #68CEE4 101.62%);
+  }
+  .botaoEnviar {
+    background: linear-gradient(90.3deg, #B379DF 0.16%, #68CEE4 101.62%);
+    border-radius: 15px;
+    width: 75px;
+    height: 40px;
+  }
   
   .user-list {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 400px;
   }
   
   .user {
@@ -118,6 +132,10 @@
 /* ... (código anterior) ... */
 
 .close-button {
+    background: linear-gradient(90.3deg, #B379DF 0.16%, #68CEE4 101.62%);
+    width: 75px;
+    height: 40px;
+    border-radius: 50px;
     margin-left: auto; /* Move o botão para a direita */
   }
 

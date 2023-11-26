@@ -91,3 +91,9 @@ export class Curtida {
   is_curtiu: boolean;
 }
 
+export interface Mensagem {
+  id_usuario_origem: number
+  id_usuario_destino: number
+  mensagem: string
+  data_mensagem: string | Date | number;
+}

@@ -9,6 +9,22 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.content {
-  flex: 1; /* O conteúdo ocupará todo o espaço restante */
+
+
+
+app-slidebar {
+  width: 20%;
+  float: left;
+}
+
+/* Estilo para o router-outlet (conteúdo principal) */
+router-outlet {
+  width: 80%;
+  float: left;
+}
+
+
+/* Limpar floats para evitar problemas de layout */
+.clearfix-container {
+  overflow: hidden;
 }

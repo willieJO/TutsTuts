@@ -14,7 +14,7 @@ import { RegistroEventoModule } from './registro-evento/registro-evento.module';
 import { RegistroModule } from './registro/registro.module';
 import { RegistroEmpresaModule } from './registro-empresa/registro-empresa.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ChatModule } from './chat/chat.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginModule,
     ModalModule,
     BuscaModule,
+    ChatModule,
     PrincipalModule,
     HttpClientModule,
     PerfilModule,

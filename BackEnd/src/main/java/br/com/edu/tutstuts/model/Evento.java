@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -29,7 +30,15 @@ public class Evento {
     private int avaliacao;
     private String localidade;
     private String foto;
-    public String getFoto() {
+    @Transient
+    private int curtidasDoEvento;
+    public int getCurtidasDoEvento() {
+		return curtidasDoEvento;
+	}
+	public void setCurtidasDoEvento(int curtidasDoEvento) {
+		this.curtidasDoEvento = curtidasDoEvento;
+	}
+	public String getFoto() {
         return foto;
     }
     public void setFoto(String foto) {

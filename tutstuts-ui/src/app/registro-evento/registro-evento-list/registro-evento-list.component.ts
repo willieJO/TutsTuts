@@ -13,6 +13,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 export class RegistroEventoListComponent {
   title = 'Registro Evento';
   value = '';
+  isNewPhotoSelected: boolean = true;
   uploadedFiles: any[] = [];
   constructor(
     public eventoserviceService: RegistroEventoServiceService,
@@ -22,6 +23,16 @@ export class RegistroEventoListComponent {
     private messageService: MessageService
   ) {}
   evento = new Evento();
+
+  onFileSelectClick() {
+    this.isNewPhotoSelected = false; // Reseta isNewPhotoSelected ao clicar no botão de seleção
+  }
+
+  onFileUploadConfirm(event: any) {
+    // Lógica para lidar com a confirmação da imagem
+    this.isNewPhotoSelected = false; // Reseta isNewPhotoSelected quando a imagem é confirmada
+    this.onFileSelected(event);
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params[`id`];

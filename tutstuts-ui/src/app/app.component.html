@@ -1,13 +1,15 @@
-<div class="container" *ngIf="!isMobile">
-  <div class="sidebar" *ngIf="authService.isAutenticado()">
-    <app-slidebar></app-slidebar>
+<div class="clearfix-container" *ngIf="!isMobile">
+    <div class="sidebar" *ngIf="authService.isAutenticado()">
+      <app-slidebar></app-slidebar>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <div class="content">
+  
+  <ng-container *ngIf="isMobile">
+    <app-slidebarmobile></app-slidebarmobile>
     <router-outlet></router-outlet>
-  </div>
-</div>
-
-<ng-container *ngIf="isMobile">
-  <app-slidebarmobile></app-slidebarmobile>
-  <router-outlet></router-outlet>
-</ng-container>
+  </ng-container>
+  <app-chat></app-chat>
+  

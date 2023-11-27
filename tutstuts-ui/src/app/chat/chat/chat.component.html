@@ -1,6 +1,6 @@
 <!-- chat.component.html -->
 
-<div class="chat-container">
+<div class="chat-container" *ngIf="authService.isAutenticado()">
     <div class="chat-header" (click)="toggleUserList()">
       <div class="chat-title">CHAT</div>
     </div>

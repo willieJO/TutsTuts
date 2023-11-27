@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Mensagem, Usuario } from 'src/app/core/model';
 import { ChatService } from './chat.service';
+import { AuthService } from 'src/app/security/auth.service';
 
 
 @Component({
@@ -9,14 +10,14 @@ import { ChatService } from './chat.service';
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
-  constructor(private chatService: ChatService ) {}
+  constructor(private chatService: ChatService,public authService: AuthService ) {}
   users: Usuario[];
-  @ViewChild('messagesContainer') messagesContainer: ElementRef; 
-
-  private updateInterval: any; 
+  @ViewChild('messagesContainer') messagesContainer: ElementRef;
+  sidebarVisible: boolean = true;
+  private updateInterval: any;
   ngOnInit(): void {
     try {
-      
+
       this.chatService.obterUsuarios().then((e: Usuario[])=>{
         this.users = e.filter(usuario => usuario.id !== parseInt(localStorage.getItem("user_id")?? "0"));
       })
@@ -25,10 +26,13 @@ export class ChatComponent implements OnInit {
     }
 
   }
+  toggleSidebar() {
+    this.sidebarVisible = !this.sidebarVisible;
+  }
 
   showUserList = true;
   selectedUser: Usuario | null = null;
-  currentUser = 1;
+  currentUser = parseInt(localStorage.getItem("user_id") ?? "0");
   newMessage = '';
   messages: Mensagem[] = [];
   mensagensAnteriores: Mensagem[] = [];

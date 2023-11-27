@@ -22,7 +22,7 @@ export class AuthService {
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/x-www-form-urlencoded')
       .append('Authorization', 'Basic Y2xpZW50OmNsaWVudA==');
-      
+
     const body = `username=${user}&password=${password}&grant_type=password`;
 
     return this.http.post(this.oauthTokenUrl, body, { headers })
@@ -30,6 +30,7 @@ export class AuthService {
       .then((response: any) => {
         console.log(response);
         this.storeToken(response[`access_token`]);
+        localStorage.setItem("user_id",this.getUserIdFromToken()?.toString() ?? "0");
         this.http.get(this.obterCnpfUrl + "/" + this.getUserIdFromToken()).toPromise()
         .then((response: any) => {
           localStorage.setItem('cnpj', response.cnpj);
@@ -74,5 +75,5 @@ export class AuthService {
     }
     return null;
   }
-  
+
 }

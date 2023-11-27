@@ -46,8 +46,7 @@ public class Evento {
     private String link;
     private int ativo;
     private String categoria;
-	@Enumerated(EnumType.STRING)
-	private EventoType type;
+
 	
     @NotNull
 	@ManyToOne
@@ -102,11 +101,12 @@ public class Evento {
     public void setUser(Usuario user) {
         this.user = user;
     }
-	public EventoType getType() {
-		return type;
+	public String getCategoria() {
+		return categoria;
 	}
-	public void setType(EventoType type) {
-		this.type = type;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
+    
     
 }

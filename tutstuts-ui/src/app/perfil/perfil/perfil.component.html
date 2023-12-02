@@ -10,7 +10,7 @@
     </div>
 
     <div class="login">
-      <h2>Editar Perfil</h2><br>
+      <h2>{{ isMeuPerfil ? 'Editar Perfil' : 'Perfil' }}</h2>
       <div class="grid">
         <div class="col-12">
           <label for="nome">Nome</label>
@@ -43,7 +43,8 @@
           <input type="text" [disabled]="!isEditing" pInputText [(ngModel)]="editedUsuario.categoria" placeholder="Categoria" id="categoria" class="custom-input" />
         </div>
         <div class="col-12">
-          <button *ngIf="!isEditing" class="botaoEnviar" pButton pRipple label="Editar" (click)="enableEditing()"></button>
+          <button *ngIf="isMeuPerfil" class="botaoEnviar" pButton pRipple label="Editar" (click)="enableEditing()"></button>
+
         </div>
 
         <div class="button-container">
@@ -61,8 +62,10 @@
     </div>
   </div>
 </div>
-<!-- Eventos Curtidos pelo usuario! -->
-<app-lista-curtida></app-lista-curtida>
+<div class="lista">
+  <app-lista-curtida [userId]="usuario.id" [isVisualizacao]="!!isMeuPerfil"></app-lista-curtida>
+</div>
+
 <input
   type="file"
   #fileInput

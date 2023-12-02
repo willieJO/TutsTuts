@@ -12,7 +12,11 @@ export class SlidebarComponent {
 
   constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.cnpj$.subscribe((cnpj) => {
+      this.cnpj = cnpj;
+    });
+  }
   sidebarVisible: boolean = true;
   goToHomePage() {
     this.router.navigate(['/principal']);
@@ -26,9 +30,16 @@ export class SlidebarComponent {
   goToAddEvent() {
     this.router.navigate(['/registroEvento']);
   }
+  gotToSearch() {
+    this.router.navigate(['/busca']);
+  }
+  goToMeusEventos() {
+    this.router.navigate(['/editarEvento']);
+  }
   goToLoginPage() {
     localStorage.removeItem("token");
     localStorage.removeItem("cnpj");
+    localStorage.removeItem("user_id");
     this.router.navigate(["/login"])
   }
 }

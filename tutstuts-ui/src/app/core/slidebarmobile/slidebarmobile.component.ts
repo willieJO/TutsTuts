@@ -12,7 +12,11 @@ export class SlidebarmobileComponent {
 
   constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.cnpj$.subscribe((cnpj) => {
+      this.cnpj = cnpj;
+    });
+  }
   sidebarVisible: boolean = true;
   goToHomePage() {
     this.router.navigate(['/principal']);
@@ -25,6 +29,9 @@ export class SlidebarmobileComponent {
   }
   goToAddEvent() {
     this.router.navigate(['/registroEvento']);
+  }
+  goToMeusEventos() {
+    this.router.navigate(['/editarEvento']);
   }
   goToLoginPage() {
     localStorage.removeItem("token");

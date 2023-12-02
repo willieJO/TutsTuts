@@ -77,7 +77,7 @@ public class UsuarioController {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remove(@PathVariable Long id) {
 		usuarioRepository.deleteById(id);
-	}
+	}	
 	
 	
 }

@@ -16,6 +16,10 @@ export class PerfilService {
     const url = `${this.baseUrl}/Usuario/${this.auth.getUserIdFromToken()}`;
     return this.http.get<Usuario>(url);
   }
+  carregarDadosDeVisualizacao(id:number): Observable<Usuario> {
+    const url = `${this.baseUrl}/Usuario/${id}`;
+    return this.http.get<Usuario>(url);
+  }
   atualizarUsuario(usuario: Usuario) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -46,12 +50,12 @@ export class PerfilService {
       )
       .toPromise();
   }
-  obterEventosCurtidoPeloUsuario(): Promise<any> {
+  obterEventosCurtidoPeloUsuario(id:number): Promise<any> {
     return this.http
       .get(
         this.baseUrl +
           '/Curtida/ObterEventosCurtidoPeloUsuario/' +
-          this.auth.getUserIdFromToken()
+          id
       )
       .toPromise();
   }

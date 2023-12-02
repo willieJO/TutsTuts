@@ -2,13 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 150px;
   height: 90vh;
   background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
 
 }
+.lista {
+  margin-left: 150px;
+}
 .container {
   width: 60%;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   padding: 10px;

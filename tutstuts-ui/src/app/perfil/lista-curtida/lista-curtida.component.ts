@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CloudinaryService } from 'src/app/cloudinary.service';
 import { Curtida, EventoCard } from 'src/app/core/model';
 import { AuthService } from 'src/app/security/auth.service';
@@ -11,7 +11,8 @@ import { PerfilService } from '../perfil.service';
 })
 export class ListaCurtidaComponent {
   selectedImage: File | null = null;
-  teste: number | null = null;
+  @Input() userId: number = 0; 
+  @Input() isVisualizacao: boolean = false;
   currentPage = 1;
   itemsPerPage = 3;
   allCardDataList: EventoCard[] = [];
@@ -33,7 +34,7 @@ export class ListaCurtidaComponent {
       .obterEventos()
       .then((data: EventoCard[]) => {
         this.perfilService
-          .obterEventosCurtidoPeloUsuario()
+          .obterEventosCurtidoPeloUsuario(this.userId)
           .then((dataCurtida: Curtida[]) => {
             this.cardDataList = data;
             this.allCardDataList = [...this.cardDataList];
@@ -113,3 +114,4 @@ export class ListaCurtidaComponent {
     }
   }
 }
+

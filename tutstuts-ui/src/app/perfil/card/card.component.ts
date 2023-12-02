@@ -35,6 +35,7 @@ export class CardComponent implements OnInit {
   @Input() dataEvento: string = '';
   @Input() headerImageURL: string = '';
   @Input() curtiuEvento: boolean;
+  @Input() isVisualizacao: boolean = false;;
 
   isFavorito: boolean = false;
 

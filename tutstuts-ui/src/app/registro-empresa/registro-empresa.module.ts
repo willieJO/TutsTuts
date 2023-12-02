@@ -7,6 +7,8 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
+import { NgxMaskModule } from 'ngx-mask';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { ToastModule } from 'primeng/toast';
   imports: [
     CommonModule,
     TableModule,
+    NgxMaskModule.forRoot(),
     ToastModule,
     FormsModule,
     ButtonModule,

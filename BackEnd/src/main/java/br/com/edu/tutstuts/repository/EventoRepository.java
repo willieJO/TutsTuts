@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import br.com.edu.tutstuts.model.BuscaProjection;
 import br.com.edu.tutstuts.model.Evento;
 
 public interface EventoRepository extends JpaRepository<Evento,Long>{
@@ -33,4 +34,18 @@ public interface EventoRepository extends JpaRepository<Evento,Long>{
 			  		+ "where e.id = ?1 and is_curtiu = 1", 
 			  nativeQuery = true)
 	int ObterQuantidadeDeCurtidasDoEvento(long id);
+	@Query(
+		value = "SELECT Id, Nome, 1 as isEvento, foto FROM Evento\n"
+			  + "Union \n"
+			  + "SELECT Id,Nome, 0 isEvento, foto FROM Usuario;",
+			nativeQuery = true)
+	List<BuscaProjection> ObterEventosEUsuariosParaBusca();
+
+	@Query(
+	    value = "SELECT * from evento\n"
+	            + "where cnpj_empresa = ?1",
+	    nativeQuery = true)
+		List<Evento> ObterEventosDesseUsuario(long id );
+
 }
+

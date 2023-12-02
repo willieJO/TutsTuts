@@ -15,9 +15,15 @@ export class RegistroEmpresaListComponent {
   value = '';
   constructor(public registroService: RegistrarService,
     private router: Router, public messageService: MessageService) {}
-  registro = new Usuario();
+    registro = new Usuario();
+    exibirErroCnpj: boolean = false;
 
   enviar() {
+    this.exibirErroCnpj = false;
+    if (!this.validarCnpjFormato(this.registro.cnpj)) {
+      this.exibirErroCnpj = true;
+      return; // Não prosseguir com o registro se o CNPJ não for válido
+    }
     this.registroService.registroempresa(this.registro)
       .then((response) => {
         setTimeout(() => {
@@ -31,15 +37,24 @@ export class RegistroEmpresaListComponent {
             this.router.navigate(['/login']); // Redireciona após o segundo setTimeout
           }, 2200);
         }, 100);
-      });
+      }).catch(e => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro',
+          detail: 'Verifique todas as informações',
+          life: 2000
+        });
+      })
+  }
+  validarCnpjFormato(cnpj: string): boolean {
+    return cnpj.length === 14;
   }
   login() {
-
-    this.router.navigate(['/login']); // Redireciona após o segundo setTimeout
-
-
+    this.router.navigate(['/login']); 
   }
-
+  
+ 
+  
   }
 
 

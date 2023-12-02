@@ -7,6 +7,7 @@ import { Curtida } from '../core/model';
   providedIn: 'root',
 })
 export class PrincipalService {
+  baseUrl = 'http://localhost:8080/Evento';
   obterEventoUrl = 'http://localhost:8080/Evento/ObterEventos';
   curtirEventoUrl = 'http://localhost:8080/Curtida/CurtirEvento';
   obterEventosCurtidoUrl = 'http://localhost:8080/Curtida/ObterEventosCurtidoPeloUsuario';
@@ -14,6 +15,9 @@ export class PrincipalService {
 
   obterEventos(): Promise<any> {
     return this.http.get(this.obterEventoUrl + "/" + this.auth.getUserIdFromToken()).toPromise();
+  }
+  obterEventoPorId(id:number): Promise<any> {
+    return this.http.get(this.baseUrl + "/" + id).toPromise();
   }
   curtirEvento(curtida:Curtida) {
     const idUsuario = this.auth.getUserIdFromToken();

@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Mensagem, Usuario } from 'src/app/core/model';
 import { ChatService } from './chat.service';
 import { AuthService } from 'src/app/security/auth.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -10,20 +12,26 @@ import { AuthService } from 'src/app/security/auth.service';
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
+  private unsubscribe$ = new Subject<void>();
   constructor(private chatService: ChatService,public authService: AuthService ) {}
   users: Usuario[];
   @ViewChild('messagesContainer') messagesContainer: ElementRef;
   sidebarVisible: boolean = true;
   private updateInterval: any;
   ngOnInit(): void {
-    try {
-
-      this.chatService.obterUsuarios().then((e: Usuario[])=>{
-        this.users = e.filter(usuario => usuario.id !== parseInt(localStorage.getItem("user_id")?? "0"));
-      })
-    } catch(e) {
-      console.log(e);
-    }
+    this.authService.userId$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((userId) => {
+        try {
+          console.log("aaa")
+          this.chatService.obterUsuarios().then((e: Usuario[])=>{
+            this.users = e.filter(usuario => usuario.id !== parseInt(localStorage.getItem("user_id")?? "0"));
+          })
+        } catch(e) {
+          console.log(e);
+        }
+      });
+   
 
   }
   toggleSidebar() {

@@ -1,8 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild,OnInit } from '@angular/core';
 import { PerfilService } from '../perfil.service';
 import { Usuario } from 'src/app/core/model';
 import { MessageService } from 'primeng/api';
 import { CloudinaryService } from 'src/app/cloudinary.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -10,21 +11,29 @@ import { CloudinaryService } from 'src/app/cloudinary.service';
   providers: [MessageService],
   styleUrls: ['./perfil.component.css'],
 })
-export class PerfilComponent {
+export class PerfilComponent implements OnInit{
   usuario: Usuario;
   showIcon: boolean = false;
   isEditing: boolean = false;
   fotoOriginal: string;
+  isMeuPerfil: boolean = true;
   editedUsuario: Usuario; // Para armazenar as alterações temporárias
   @ViewChild('fileInput') fileInput!: ElementRef;
 
   constructor(
     private messageService: MessageService,
     private perfilService: PerfilService,
+    private route:ActivatedRoute,
     private cloudinaryService: CloudinaryService
   ) {}
 
   ngOnInit() {
+    const id = this.route.snapshot.params[`id`];
+    if(id != undefined &&id != 'new'){
+      this.isMeuPerfil = false;
+      this.carregarDadosDeVisualizacao(id);
+      return;
+    }
     this.carregarDadosUsuario();
   }
 
@@ -32,6 +41,13 @@ export class PerfilComponent {
     if (this.isEditing && this.fileInput) {
       this.fileInput.nativeElement.click();
     }
+  }
+  carregarDadosDeVisualizacao(id:number) {
+    this.perfilService.carregarDadosDeVisualizacao(id).subscribe((user: Usuario) => {
+      this.usuario = { ...user };
+      this.editedUsuario = { ...user };
+      this.fotoOriginal = this.usuario.foto;
+    });
   }
 
   selectFile() {

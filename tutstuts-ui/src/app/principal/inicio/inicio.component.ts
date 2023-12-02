@@ -4,6 +4,8 @@ import { CloudinaryService } from '../.././cloudinary.service';
 import { AuthService } from 'src/app/security/auth.service';
 import { Evento, Curtida } from 'src/app/core/model';
 import { EventoCard } from 'src/app/core/model';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -22,9 +24,46 @@ export class InicioComponent {
 
   constructor(private cloudinaryService: CloudinaryService,
      private auth: AuthService,
+     private route:ActivatedRoute,
      private principalService:PrincipalService) {}
 
   ngOnInit() {
+    const id = this.route.snapshot.params[`id`];
+    if(id != undefined &&id != 'new'){
+      this.principalService.obterEventoPorId(id).then((data: EventoCard[]) => {
+        this.principalService.obterEventosCurtidoPeloUsuario().then((dataCurtida: Curtida[]) => {
+          this.cardDataList = data;
+          this.allCardDataList = [...this.cardDataList];
+  
+          this.allCardDataList.forEach(x => {
+  
+            dataCurtida.forEach(y => {
+              if (x.id == y.evento_id) {
+                x.curtiu = y.is_curtiu;
+              }
+            });
+          });
+          this.loadNextPage();
+          window.onscroll = () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+              this.handleScroll();
+            }
+          };
+        }).catch((e)=> {
+          this.cardDataList = data;
+          this.allCardDataList = [...this.cardDataList];
+          this.loadNextPage();
+          window.onscroll = () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+              this.handleScroll();
+            }
+          };
+        })
+      }).catch((error) => {
+        console.error('Ocorreu um erro ao obter os eventos: ', error);
+      });
+      return;
+    }
     this.principalService.obterEventos().then((data: EventoCard[]) => {
       this.principalService.obterEventosCurtidoPeloUsuario().then((dataCurtida: Curtida[]) => {
         this.cardDataList = data;

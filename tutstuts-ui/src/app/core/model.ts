@@ -68,6 +68,7 @@ export class Busca {
     id: number;
     nome: string;
     foto: string;
+    isEvento: boolean;
 }
 
 export class RegistroUsuario {

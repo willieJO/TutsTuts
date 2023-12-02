@@ -44,8 +44,8 @@ export class RegistroEventoListComponent {
   carregarDados(id: number) {
     this.eventoserviceService.findById(id)
       .then(evento => {
-        this.evento = evento;
-        const partesData = evento.data_evento.split('/');
+        this.evento = evento[0];
+        const partesData = evento[0].data_evento.split('/');
         const dataFormatada = `${partesData[2]}-${partesData[1]}-${partesData[0]}`; // converte para '2023-11-01'
         this.evento.data_evento = dataFormatada;
       })

@@ -6,13 +6,17 @@
         <mat-icon>home</mat-icon>
         <span>Página Principal</span>
       </a>
-      <!-- <a mat-list-item>
+      <a mat-list-item (click)="gotToSearch()">
           <mat-icon>search</mat-icon>
           <span>Pesquisar</span>
-      </a> -->
+      </a>
       <a mat-list-item *ngIf="cnpj" (click)="goToAddEvent()">
         <mat-icon>add</mat-icon>
         <span>Adicionar Evento</span>
+      </a>
+      <a mat-list-item *ngIf="cnpj" (click)="goToMeusEventos()">
+        <mat-icon>edit</mat-icon>
+        <span>Meus Eventos</span>
       </a>
       <a mat-list-item (click)="goToProfilePage()">
         <mat-icon>person</mat-icon>

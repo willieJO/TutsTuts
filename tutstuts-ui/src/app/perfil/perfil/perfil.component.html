@@ -40,12 +40,19 @@
           <label for="categoria">Categoria</label> <!-- Ajuste a largura conforme necessário -->
         </div>
         <div class="col-12">
-          <select select [(ngModel)]="editedUsuario.categoria" style="width: 100%" [disabled]="!isEditing" name="categoria" id="categoria" placeholder="Categoria" id="categoria" class="custom-input" >
-            <option *ngFor="let option of categorias" [value]="option.value">{{ option.label }}</option>
-          </select>
+          <select [disabled]="!isEditing"
+          pInputText
+          [(ngModel)]="editedUsuario.categoria"
+          id="categoria"
+          name="categoria"
+          tabindex="1"
+          class="custom-input"
+        >
+        <option *ngFor="let option of categorias" [value]="option.value">{{ option.label }}</option>
+        </select>
         </div>
         <div class="col-12">
-          <button *ngIf="isMeuPerfil" class="botaoEnviar" pButton pRipple label="Editar" (click)="enableEditing()"></button>
+          <button *ngIf="isMeuPerfil && !isEditing" class="botaoEnviar" pButton pRipple label="Editar" (click)="enableEditing()"></button>
 
         </div>
 

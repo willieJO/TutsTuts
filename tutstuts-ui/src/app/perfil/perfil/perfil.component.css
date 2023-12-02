@@ -10,8 +10,12 @@
 .lista {
   margin-left: 150px;
 }
+select option {
+  background-color: #3f044b;
+  width: 100%;
+}
 .container {
-  width: 60%;
+  width: 70%;
   height: 80vh;
   display: flex;
   align-items: center;

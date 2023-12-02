@@ -67,7 +67,7 @@
   height: 250px;
   object-fit: cover;
   border-radius: 100%;
-  overflow: hidden; /* Adicione esta linha para garantir que a imagem não ultrapasse os limites do contêiner */
+  overflow: hidden; /* Adicione esta linha para garantir que a imagem n�o ultrapasse os limites do cont�iner */
 }
 
 /* Ajustes nos estilos dos campos */
@@ -77,7 +77,7 @@
   text-align: left;
 }
 
-/* Animação */
+/* Anima��o */
 @keyframes neon-animation {
   0% {
     opacity: 10; /* Opacidade inicial */

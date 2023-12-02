@@ -6,6 +6,7 @@ import { RegistroListComponent } from './registro-list/registro-list.component';
 import { FormsModule } from '@angular/forms';
 import { PasswordModule } from "primeng/password";
 import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   declarations: [
     RegistroListComponent
@@ -16,6 +17,7 @@ import { ToastModule } from 'primeng/toast';
     ToastModule,
     FormsModule,
     TooltipModule,
+    DropdownModule,
     PasswordModule
   ],
   exports: [

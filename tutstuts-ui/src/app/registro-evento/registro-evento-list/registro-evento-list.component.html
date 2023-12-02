@@ -67,11 +67,10 @@
           tabindex="1"
           class="custom-input"
         >
-          <option value="nenhuma">Nenhuma</option>
-          <option value="festival">Festival</option>
-          <option value="workshop">Workshop</option>
+        <option *ngFor="let option of categorias" [value]="option.value">{{ option.label }}</option>
         </select>
       </div>
+
       <div class="form-group">
         <label for="localidade">Localidade:</label>
         <input

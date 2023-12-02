@@ -19,6 +19,13 @@ export class PerfilComponent implements OnInit{
   isMeuPerfil: boolean = true;
   editedUsuario: Usuario; // Para armazenar as alterações temporárias
   @ViewChild('fileInput') fileInput!: ElementRef;
+  categorias = [
+    { label: 'Nenhum', value: 'NENHUM' },
+    { label: 'Festival', value: 'FESTIVAL' },
+    { label: 'Show', value: 'SHOW' },
+    { label: 'Palestra', value: 'PALESTRA' },
+    { label: 'Musical', value: 'MUSICAL' }
+  ];
 
   constructor(
     private messageService: MessageService,

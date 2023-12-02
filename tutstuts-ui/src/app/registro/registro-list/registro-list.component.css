@@ -155,10 +155,12 @@ h3{
   background: linear-gradient(90.3deg, #3f044b 0.06%, #370352 101.62%);
   color: white; /* Adicionando cor de texto branco */
 }
-  select option {
-    background-color: #3f044b;
 
-  }
+select option {
+  background-color: #3f044b;
+
+}
+
 .btn {
   display: block;
   width: 100%;

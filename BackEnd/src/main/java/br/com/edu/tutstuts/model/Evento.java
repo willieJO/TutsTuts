@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,6 +55,8 @@ public class Evento {
     private String link;
     private int ativo;
     private String categoria;
+
+	
     @NotNull
 	@ManyToOne
 	@JoinColumn(name = "cnpj_empresa")
@@ -100,17 +104,18 @@ public class Evento {
     public void setAtivo(int ativo) {
         this.ativo = ativo;
     }
-    public String getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
     public Usuario getUser() {
         return user;
     }
     public void setUser(Usuario user) {
         this.user = user;
     }
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+    
     
 }

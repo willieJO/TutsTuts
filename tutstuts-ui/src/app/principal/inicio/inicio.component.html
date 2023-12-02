@@ -11,7 +11,9 @@
     [localidade]="cardData.localidade"
     [headerImageURL]="cardData.user.foto"
     [dataEvento]="cardData.data_evento ?? ''"
-    [likes]="0"
+    [nome]="cardData.nome"
+    [likes]="cardData.curtidasDoEvento"
+    [curtiuEvento]="cardData.curtiu"
   ></app-card>
 </div>
 <div *ngIf="showLoading" class="loading-overlay">

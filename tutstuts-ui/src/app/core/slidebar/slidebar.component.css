@@ -1,7 +1,54 @@
-.responsive-image {
-    max-width: 40%;
-    height: auto;
-  }
+.sidebar-container {
+  display: flex;
+}
 
+.sidebar {
+  width: 230px; /* Ajuste a largura conforme necessário */
+  height: 100vh; /* Ajuste a altura conforme necessário */
+  background-color: #2c0234;/* Cor de fundo desejada para o menu */
+  padding: 10px;
+  box-shadow: 2px 4px 50px rgba(190, 18, 224, 0.1); /* Sombra desejada, se necessário */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position:fixed;
+}
 
-  
+.login-image {
+  width: 150px; /* Ajuste a largura da imagem conforme necessário */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.mat-list-item {
+  cursor: pointer;
+  color: white; /* Definindo a cor do texto para branco */
+}
+.mat-icon{
+  margin-left: 5px;
+}
+.mat-list-item:hover {
+  background-color: #e4e4e4; /* Cor de fundo desejada ao passar o mouse sobre os itens do menu */
+}
+
+.logout-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: white; /* Definindo a cor do texto para branco */
+}
+span {
+  color: white; /* Definindo a cor dos links para branco */
+}
+.sidebar a {
+  color: white; /* Definindo a cor dos links para branco */
+}
+
+.sidebar mat-icon {
+  color: white; /* Definindo a cor dos ícones para branco */
+}
+.sidebar-footer {
+  margin-top: auto;
+}

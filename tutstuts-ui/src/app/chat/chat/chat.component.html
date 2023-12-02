@@ -1,0 +1,38 @@
+<!-- chat.component.html -->
+
+<div class="chat-container" *ngIf="authService.isAutenticado()">
+    <div class="chat-header" (click)="toggleUserList()">
+      <div class="chat-title">CHAT</div>
+    </div>
+    <div class="user-list" [class.hidden]="!showUserList">
+      <div class="user" *ngFor="let user of users" (click)="openChat(user)">
+        <img [src]="user.foto" alt="{{ user.nome }}" class="user-avatar">
+        {{ user.nome }}
+      </div>
+    </div>
+    <div *ngIf="selectedUser" class="overlay">
+      <div class="chat-content">
+        <div class="chat-header-inner">
+          <img [src]="selectedUser.foto" alt="{{ selectedUser.nome }}" class="user-avatar">
+          <div class="user-info">
+            <div class="user-name">{{ selectedUser.nome }}</div>
+          </div>
+          <button class="close-button" (click)="closeChat()">Voltar</button>
+        </div>
+        <div class="messages-container" #messagesContainer>
+          <div class="message" *ngFor="let message of messages">
+            <div class="message-info" [ngClass]="{'info-left': message.id_usuario_destino === currentUser, 'info-right': message.id_usuario_destino !== currentUser}">
+              <div class="timestamp">{{ message.data_mensagem }}</div>
+            </div>
+            <div [ngClass]="{'message-left': message.id_usuario_destino === currentUser, 'message-right': message.id_usuario_destino !== currentUser}">
+              {{ message.mensagem }}
+            </div>
+          </div>
+        </div>
+        <div class="message-input">
+          <input class="botaoEnviar" [(ngModel)]="newMessage" placeholder="Digite sua mensagem">
+          <button class="botaoEnviar"(click)="sendMessage()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -10,7 +10,7 @@
       </div>
 
       <div class="login">
-        <h2>{{ title }}</h2>
+        <h2>{{ title }}</h2><br><br>
           <div class="form-group">
             <label for="nome">Nome:</label>
             <input [(ngModel)]="registro.nome" name="nome" type="text" placeholder="Nome" id="nome" tabindex="1"
@@ -18,28 +18,30 @@
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
-            <input [(ngModel)]="registro.email" name="email" type="text" placeholder="Email" id="email" tabindex="2"
+            <input [(ngModel)]="registro.email" name="email" type="text" placeholder="Email"  id="email" tabindex="2"
               required />
           </div>
           <div class="form-group">
             <label for="senha">Senha:</label>
-            <input [(ngModel)]="registro.senha" name="senha" #passwordInput type="password" placeholder="Senha" id="password" class="custom-input" tabindex="3" />
+            <input [(ngModel)]="registro.senha" name="senha" #passwordInput type="password" placeholder="Senha" id="password"  tabindex="3" />
           </div>
           <div class="form-group">
             <label for="categoria">Categoria:</label>
-            <select [(ngModel)]="registro.categoria" name="categoria" id="categoria" name="categoria">
-              <option value="nenhuma">Nenhuma</option>
-              <option value="festival">Festival</option>
-              <option value="workshop">Workshop</option>
+            <select select [(ngModel)]="registro.categoria" name="categoria" id="categoria" name="categoria">
+              <option *ngFor="let option of categorias" [value]="option.value">{{ option.label }}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="cnpj">CNPJ:</label>
-            <input [(ngModel)]="registro.cnpj" name="cnpj" type="text" placeholder="Cnpj" id="cnpj" tabindex="5"
-              required />
+            <input [(ngModel)]="registro.cnpj" name="cnpj" type="text" placeholder="Cnpj" id="cnpj" tabindex="5" mask="00.000.000/0000-00" required />
+            <div *ngIf="exibirErroCnpj" class="alert alert-danger">
+              O CNPJ deve estar no formato válido.
+            </div>
           </div>
           <button class="btn" pButton pRipple label="Registrar" (click)="enviar()"></button>
-        
+<br>
+          <h3>Já possui cadastro? <a (click)="login()">Faça o Login</a></h3>
+
       </div>
     </div>
   </div>

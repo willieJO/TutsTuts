@@ -1,44 +1,182 @@
 
 
+.main-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
+
+}
+
+/* Estilos do contêiner interno */
+.container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(50px);
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #bd68e4;
+
+  animation: neon-animation 1.3s infinite alternate;
+}
+@media screen and (max-width: 680px){
+  .container{
+    width: 100%;
+    flex-direction: column;
+  }
+  .main-login{
+    background: linear-gradient(180.3deg, #3f044b 50.6%, #2a023f 101.62%);
+
+  }
+  .h2{
+    font-size: 1px;
+  }
+  body{
+    background: linear-gradient(-180.3deg, #3f044b 50.6%, #2a023f 101.62%);
+
+  }
+  .login-image{
+    width: 200px;
+    margin-top: 0px;
+    height: 200px;
+  }
+  .image{
+    width: 200px;
+    height: 200px;
+  }
+  .login{
+    margin-top: -80px;
+  }
+}
+
+/* Estilos da imagem */
+.image {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  transition: bottom 1s;
+}
+.image:hover {
+  bottom: 25px;
+}
+
+/* Estilos do formulário */
+.login {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.login h2 {
+  font-size: 45px;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-left: -60px;
+  font-family: 'Satisfy', cursive;
+  color: #ffff; /* Cor do texto (verde) */
+   text-shadow: 0 0 10px #0000, 0 0 20px #3bb2cd, 0 0 30px #68CEE4; /* Sombra do texto */
+  }
+
+  /* Animação */
+  @keyframes neon-animation {
+     0% {
+         opacity: 10; /* Opacidade inicial */
+     }
+     100% {
+         opacity: 0.8; /* Opacidade final (diminui) */
+         text-shadow: 0 0 20px #68CEE4, 0 0 40px #68CEE4, 0 0 60px #bd68e4; /* Sombra final (aumenta) */
+     }
+  }
+
+  /* Quando o mouse passa por cima */
+  .neon-text:hover {
+     animation: none; /* Remove a animação ao passar o mouse */
+     opacity: 1; /* Restaura a opacidade ao passar o mouse */
+     text-shadow: 0 0 10px #bd68e4, 0 0 20px #68CEE4, 0 0 30px #68CEE4; /* Restaura a sombra ao passar o mouse */
+  }
+
+.login-image {
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+  max-width: 100%;
+  height: auto;
+  animation: resize-animation  1s infinite alternate;
+}
+
+
+.login-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.animated-image {
+  width: 200px; /* Largura inicial da imagem */
+  height: 150px; /* Altura inicial da imagem */
+  animation: resize-animation 1s ease-in-out infinite; /* Aplicar a animação */
+}
+
+/* Animação de aumento e diminuição de tamanho */
+@keyframes resize-animation {
+  0%, 100% {
+      transform: scale(1); /* Tamanho normal */
+  }
+  50% {
+      transform: scale(1.05);
+  }
+}
+.form-group {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.form-group label {
+  font-size: 20px;
+  display: block;
+  font-weight: bold;
+}
+
 .center-container {
     display: flex;
-    flex-direction: column; /* Empilha os elementos verticalmente */
+    flex-direction: row; /* Empilha os elementos verticalmente */
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     height: 100vh; /* Isso garante que o contêiner ocupe toda a altura da janela */
-    
+
   }
   .p-inputgroup {
-    width: 300px; /* Defina a largura desejada */
-    /* Outros estilos personalizados, se necessário */
+    width: 80%; /* Defina a largura desejada */
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+    align-items: center;
+    border-radius: 0px;
   }
-  
+
   .custom-password-inpu {
-    
+
     width: 100% !important; /* Define a largura desejada */
     /* Outros estilos personalizados, se necessário */
   }
-  
+
   .labelInput {
-    
+
     display: inline-block;
     vertical-align: middle;
     width: 210px; /* Largura do rótulo (ajuste conforme necessário) */
     text-align: left;
     margin-right: 10px; /* Espaçamento entre o rótulo e o campo de entrada */
   }
-  /* Estilo para o p-inputgroup da senha */
-  .login-image {
-    z-index: 99;
-    margin-top: -150px;
-    width: 150px;
-    height: 150px;
-  }
-  
-  
+
+
+
 .glass-container {
     display: flex;
-    flex-direction: column; /* Empilha os elementos verticalmente */
+    flex-direction: row; /* Empilha os elementos verticalmente */
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     height: 520px;
@@ -50,20 +188,28 @@
     border-radius: 50px;
     border: 1px solid rgba(185, 13, 136, 0.18);
 }
-.botaoEnviar {
-  background: linear-gradient(90.3deg, #B379DF 0.16%, #68CEE4 101.62%);
-  border-radius: 15px;
-  width: 300px;
+
+.button-group {
+  display: flex; /* Faz com que os botões fiquem lado a lado */
+  justify-content: space-between; /* Espaço igual entre os botões */
+  width: 80%; /* Garante que os botões ocupem a largura total do contêiner */
+  margin-top: 80px; /* Espaçamento superior entre os botões, ajuste conforme necessário */
 }
 
+.botaoEnviar {
+  flex: 1; /* Distribui igualmente o espaço disponível entre os botões */
+  background: linear-gradient(90.3deg, #B379DF 0.16%, #68CEE4 101.62%);
+  border-radius: 5px;
+  margin-right: 5px; /* Espaçamento direito entre os botões, ajuste conforme necessário */
+}
   .p-input-icon-left {
     position: relative;
   }
-  
+
   .p-input-icon-left i {
-    
+
     right: 10px; /* Ajuste conforme necessário para posicionar o ícone dentro do campo */
-    
+
     cursor: pointer;
   }
   .pi-eye , .pi-eye-slash{
@@ -72,22 +218,21 @@
     left: 90%;
 
     cursor: pointer;
-    
+
   }
 
-  
+
   .tracking-in-contract-bck{
-    
+
     .tracking-in-contract-bck {
-        color: blueviolet;
-        
+        color: #B379DF;
+
         -webkit-animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
                 animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     }
-    
-}
-  @-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}
-  
-  
 
-  
+}
+  @-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateX(400px);transform:translateX(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateX(400px);transform:translateX(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}
+
+
+

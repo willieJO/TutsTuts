@@ -7,7 +7,15 @@
   background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
 
 }
-
+a{
+  color: #B379DF;
+}
+a :hover{
+  color:#ffff;
+}
+h3{
+  text-align: center;
+}
 /* Estilos do contêiner interno */
 .container {
   width: 80%;
@@ -147,10 +155,12 @@
   background: linear-gradient(90.3deg, #3f044b 0.06%, #370352 101.62%);
   color: white; /* Adicionando cor de texto branco */
 }
-  select option {
-    background-color: #3f044b;
 
-  }
+select option {
+  background-color: #3f044b;
+
+}
+
 .btn {
   display: block;
   width: 100%;

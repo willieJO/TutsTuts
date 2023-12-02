@@ -4,20 +4,25 @@ import { SlidebarComponent } from './slidebar/slidebar.component';
 import { MatIconModule } from '@angular/material/icon'; // Módulo de ícones do Angular Material
 import { SidebarModule } from 'primeng/sidebar'; // Módulo do PrimeNG para a barra lateral
 import { ButtonModule } from 'primeng/button';
-
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { SlidebarmobileComponent } from './slidebarmobile/slidebarmobile.component';
 @NgModule({
   declarations: [
-    SlidebarComponent
+    SlidebarComponent,
+    SlidebarmobileComponent
   ],
   imports: [
     CommonModule,
     MatIconModule,
+    MatSidenavModule,
+    MatListModule,
     ButtonModule,
     SidebarModule
   ],
   exports: [
-    SlidebarComponent
+    SlidebarComponent,
+    SlidebarmobileComponent,
   ]
 })
 export class CoreModule { }

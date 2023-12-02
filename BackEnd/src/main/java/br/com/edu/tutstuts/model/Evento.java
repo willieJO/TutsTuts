@@ -5,12 +5,15 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -29,7 +32,15 @@ public class Evento {
     private int avaliacao;
     private String localidade;
     private String foto;
-    public String getFoto() {
+    @Transient
+    private int curtidasDoEvento;
+    public int getCurtidasDoEvento() {
+		return curtidasDoEvento;
+	}
+	public void setCurtidasDoEvento(int curtidasDoEvento) {
+		this.curtidasDoEvento = curtidasDoEvento;
+	}
+	public String getFoto() {
         return foto;
     }
     public void setFoto(String foto) {
@@ -44,6 +55,8 @@ public class Evento {
     private String link;
     private int ativo;
     private String categoria;
+
+	
     @NotNull
 	@ManyToOne
 	@JoinColumn(name = "cnpj_empresa")
@@ -91,17 +104,18 @@ public class Evento {
     public void setAtivo(int ativo) {
         this.ativo = ativo;
     }
-    public String getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
     public Usuario getUser() {
         return user;
     }
     public void setUser(Usuario user) {
         this.user = user;
     }
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+    
     
 }

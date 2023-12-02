@@ -1,0 +1,27 @@
+<div class="container" *ngIf="isLike">
+  <h2 class="title">Eventos curtidos</h2>
+  <div class="card-container">
+    <app-card
+      *ngFor="let cardData of paginatedCardDataList"
+      class="app-card"
+      [id]="cardData.id ?? 0"
+      [title]="cardData.user.nome"
+      [imageSrc]="cardData.foto"
+      [content]="cardData.descricao"
+      [link]="cardData.link"
+      [localidade]="cardData.localidade"
+      [headerImageURL]="cardData.user.foto"
+      [dataEvento]="cardData.data_evento ?? ''"
+      [likes]="cardData.curtidasDoEvento"
+      [nome]="cardData.nome"
+      [isVisualizacao]="isVisualizacao"
+      [curtiuEvento]="cardData.curtiu"
+    ></app-card>
+  </div>
+  <div *ngIf="showLoading" class="loading-overlay">
+    <mat-progress-spinner
+      class="custom-spinner"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+  </div>
+</div>

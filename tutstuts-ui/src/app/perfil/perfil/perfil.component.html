@@ -1,55 +1,78 @@
-<p-toast></p-toast>
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-  <div class="grid" style="width: 100%; max-width: 300px; position: relative;">
-    <div class="profile-picture" style="margin-bottom: 5%; margin-left: 25%; position: relative;" (mouseover)="addOverlay()" (mouseout)="removeOverlay()">
-      <img (click)="openFileInput()"  id="profile-img"  [src]="editedUsuario.foto" alt="Imagem de Perfil" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
-      <div (click)="openFileInput()" class="camera-icon" *ngIf="isEditing" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); cursor: pointer;" (click)="selectFile()">
-        <i class="fa fa-camera" aria-hidden="true" style="font-size: 24px; z-index:9999"></i>
+<div class="main-login">
+  <div class="container">
+    <p-toast></p-toast>
+    <!-- Image -->
+    <div class="image" (mouseover)="addOverlay()" (mouseout)="removeOverlay()">
+      <img class="login-image rounded" (click)="openFileInput()" id="profile-img" [src]="editedUsuario.foto" alt="Imagem de Perfil" (click)="selectFile()">
+      <div (click)="openFileInput()" class="camera-icon" *ngIf="isEditing" (click)="selectFile()">
+        <i class="fa fa-camera" style="margin-left: 10px;" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="login">
+      <h2>{{ isMeuPerfil ? 'Editar Perfil' : 'Perfil' }}</h2>
+      <div class="grid">
+        <div class="col-12">
+          <label for="nome">Nome</label>
+        </div>
+        <div class="col-12">
+          <input type="text" [disabled]="!isEditing" pInputText [(ngModel)]="editedUsuario.nome" placeholder="Nome" id="nome" class="custom-input" />
+        </div>
+      </div>
+      <div class="grid" >
+        <div class="col-12">
+          <label for="email">Email</label>
+        </div>
+        <div class="col-12">
+          <input type="text" [disabled]="!isEditing" pInputText [(ngModel)]="editedUsuario.email" placeholder="Email" id="email" class="custom-input" />
+        </div>
+      </div>
+      <div class="grid" *ngIf="editedUsuario.cnpj && editedUsuario.cnpj !== null && editedUsuario.cnpj !== ''">
+        <div class="col-12">
+          <label for="cnpj">Cnpj</label>
+        </div>
+        <div class="col-12">
+          <input type="text" [disabled]="!isEditing" pInputText [(ngModel)]="editedUsuario.cnpj" placeholder="Cnpj" id="cnpj" class="custom-input" />
+        </div>
+      </div>
+      <div class="grid">
+        <div class="col-12">
+          <label for="categoria">Categoria</label> <!-- Ajuste a largura conforme necessário -->
+        </div>
+        <div class="col-12">
+          <select select [(ngModel)]="editedUsuario.categoria" style="width: 100%" [disabled]="!isEditing" name="categoria" id="categoria" placeholder="Categoria" id="categoria" class="custom-input" >
+            <option *ngFor="let option of categorias" [value]="option.value">{{ option.label }}</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button *ngIf="isMeuPerfil" class="botaoEnviar" pButton pRipple label="Editar" (click)="enableEditing()"></button>
+
+        </div>
+
+        <div class="button-container">
+          <div class="grid grid-buttons">
+            <div class="col-6 button-col" *ngIf="isEditing">
+              <button class="p-button-success" pButton pRipple label="Salvar" (click)="saveChanges()"></button>
+            </div>
+            <div class="col-6 button-col" *ngIf="isEditing">
+              <button class="p-button-danger" pButton pRipple label="Cancelar" (click)="cancelEditing()"></button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-  <div class="grid" style="width: 100%; max-width: 300px;">
-    <div class="col-12">
-      <label style="width: 100px;" for="nome">Nome</label>
-    </div>
-    <div class="col-12">
-      <input style="width: 100%" type="text"[disabled]="!isEditing" pInputText [(ngModel)]="editedUsuario.nome" placeholder="Nome" id="nome" class="custom-input" />
-    </div>
-  </div>
-  <div class="grid" style="width: 100%; max-width: 300px;">
-    <div class="col-12">
-      <label style="width: 100px;" for="email">Email</label>
-    </div>
-    <div class="col-12">
-      <input style="width: 100%" type="text"[disabled]="!isEditing"  pInputText [(ngModel)]="editedUsuario.email" placeholder="Email" id="email" class="custom-input" />
-    </div>
-  </div>
-  <div class="grid" style="width: 100%; max-width: 300px;" *ngIf="editedUsuario.cnpj && editedUsuario.cnpj !== null && editedUsuario.cnpj !== ''">
-    <div class="col-12">
-        <label style="width: 100px;" for="cnpj">Cnpj</label>
-    </div>
-    <div class="col-12">
-        <input style="width: 100%" type="text" [disabled]="!isEditing" pInputText [(ngModel)]="editedUsuario.cnpj" placeholder="Cnpj" id="cnpj" class="custom-input" />
-    </div>
 </div>
-  <div class="grid" style="width: 100%; max-width: 300px;">
-    <div class="col-12">
-      <label style="width: 100px;" for="categoria">Categoria</label> <!-- Ajuste a largura conforme necessário -->
-    </div>
-    <div class="col-12">
-      <input style="width: 100%;" type="text"[disabled]="!isEditing"  pInputText [(ngModel)]="editedUsuario.categoria" placeholder="Categoria" id="categoria" class="custom-input" />
-    </div>
-    <div class="col-12">
-      <button *ngIf="!isEditing" class="botaoEnviar" pButton pRipple label="Editar" (click)="enableEditing()"></button>
-    </div>
-    <div class="grid" style="width: 100%; max-width: 300px;">
-      <div class="col-6" *ngIf="isEditing">
-        <button style="border-radius: 15px; width: 100%;" class="p-button-success" pButton pRipple label="Salvar" (click)="saveChanges()"></button>
-      </div>
-      <div class="col-6" *ngIf="isEditing">
-        <button style="border-radius: 15px; width: 100%;" class="p-button-danger " pButton pRipple label="Cancelar" (click)="cancelEditing()"></button>
-      </div>
-    </div>
-  </div>
+<div class="lista">
+  <app-lista-curtida [userId]="usuario.id" [isVisualizacao]="!!isMeuPerfil"></app-lista-curtida>
 </div>
-<input type="file" #fileInput accept="image/png, image/jpeg"  style="display: none;" (change)="onFileSelected($event)">
+
+<input
+  type="file"
+  #fileInput
+  accept="image/png, image/jpeg"
+  style="display: none"
+  (change)="onFileSelected($event)"
+/>
+<input type="file" #fileInput accept="image/png, image/jpeg" style="display: none;" (change)="onFileSelected($event)">

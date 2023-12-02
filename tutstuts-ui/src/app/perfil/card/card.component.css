@@ -1,0 +1,32 @@
+.example-card {
+  max-width: 700px;
+  min-width: 700px;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(90.3deg, #660779 50.6%, #2a023f 101.62%);
+  margin-top: 4%;
+  box-shadow: 0px 5px 40px #d07ee4;
+
+  }
+
+.data-evento {
+  display: flex;
+  margin-left: 20%;
+}
+
+@media screen and (max-width: 680px) {
+  .data-evento {
+    display: flex;
+    margin-left: 0%;
+  }
+
+  .img-responsive {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}

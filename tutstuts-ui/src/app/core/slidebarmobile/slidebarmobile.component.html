@@ -1,0 +1,33 @@
+<div class="sidebar-container" *ngIf="authService.isAutenticado()">
+  <p-button (click)="toggleSidebar()" icon="pi pi-bars" class="sidebar-toggle-button"></p-button>
+  <p-sidebar [(visible)]="sidebarVisible" [showCloseIcon]="true" class="custom-sidebar">
+      <ng-template pTemplate="header">
+          <img class="login-image responsive-image" src="https://imgur.com/RMiWfFm.png">
+      </ng-template>
+      <ng-template pTemplate="content">
+          <div (click)="goToHomePage()" style="cursor: pointer; margin-top:12px">
+              <mat-icon>home</mat-icon> Página Principal
+          </div>
+          
+          <div style="cursor: pointer;"style="cursor: pointer; margin-top:12px" >
+              <mat-icon>search</mat-icon> Pesquisar
+          </div>
+          
+          <div (click)="goToAddEvent()" *ngIf="cnpj == true" style="cursor: pointer;"style="cursor: pointer; margin-top:12px" >
+              <mat-icon>+</mat-icon> Adicionar Evento
+          </div>
+          <div (click)="goToMeusEventos()" *ngIf="cnpj == true" style="cursor: pointer;"style="cursor: pointer; margin-top:12px" >
+            <mat-icon>edit</mat-icon> Meus Eventos
+        </div>
+          <div (click)="goToProfilePage()" style="cursor: pointer; margin-top:12px">
+              <mat-icon>person</mat-icon> Meu Perfil
+          </div>
+      </ng-template>
+      <ng-template  pTemplate="footer" style="cursor: pointer; margin-top:8px">
+        <div (click)="goToLoginPage()" style="cursor: pointer; margin-top:12px">
+              <mat-icon>exit_to_app</mat-icon> Sair
+          </div>
+
+      </ng-template>
+  </p-sidebar>
+</div>

@@ -1,30 +1,36 @@
 <div class="sidebar-container" *ngIf="authService.isAutenticado()">
-    <p-button (click)="toggleSidebar()" icon="pi pi-bars" class="sidebar-toggle-button"></p-button>
-    <p-sidebar [(visible)]="sidebarVisible" [showCloseIcon]="true" class="custom-sidebar">
-        <ng-template pTemplate="header">
-            <img class="login-image responsive-image" src="https://imgur.com/RMiWfFm.png">
-        </ng-template>
-        <ng-template pTemplate="content">
-            <div (click)="goToHomePage()" style="cursor: pointer; margin-top:12px">
-                <mat-icon>home</mat-icon> Página Principal
-            </div>
-            <!--
-                <div style="cursor: pointer;"style="cursor: pointer; margin-top:12px" >
-                <mat-icon>search</mat-icon> Pesquisar
-            </div>
-            -->
-            <div (click)="goToAddEvent()" *ngIf="cnpj == true" style="cursor: pointer;"style="cursor: pointer; margin-top:12px" >
-                <mat-icon>+</mat-icon> Adicionar Evento
-            </div>
-            <div (click)="goToProfilePage()" style="cursor: pointer; margin-top:12px">
-                <mat-icon>person</mat-icon> Meu Perfil
-            </div>
-        </ng-template>
-        <ng-template  pTemplate="footer" style="cursor: pointer; margin-top:8px">
-          <div (click)="goToLoginPage()" style="cursor: pointer; margin-top:12px">
-                <mat-icon>exit_to_app</mat-icon> Sair
-            </div>
-
-        </ng-template>
-    </p-sidebar>
+  <div class="sidebar">
+    <img class="login-image responsive-image" src="https://imgur.com/RMiWfFm.png">
+    <mat-nav-list>
+      <a mat-list-item (click)="goToHomePage()">
+        <mat-icon>home</mat-icon>
+        <span>Página Principal</span>
+      </a>
+      <a mat-list-item (click)="gotToSearch()">
+          <mat-icon>search</mat-icon>
+          <span>Pesquisar</span>
+      </a>
+      <a mat-list-item *ngIf="cnpj" (click)="goToAddEvent()">
+        <mat-icon>add</mat-icon>
+        <span>Adicionar Evento</span>
+      </a>
+      <a mat-list-item *ngIf="cnpj" (click)="goToMeusEventos()">
+        <mat-icon>edit</mat-icon>
+        <span>Meus Eventos</span>
+      </a>
+      <a mat-list-item (click)="goToProfilePage()">
+        <mat-icon>person</mat-icon>
+        <span>Meu Perfil</span>
+      </a>
+    </mat-nav-list>
+    <div class="sidebar-footer">
+      <div class="logout-container" (click)="goToLoginPage()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sair</span>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <!-- seu conteúdo principal aqui -->
+  </div>
 </div>

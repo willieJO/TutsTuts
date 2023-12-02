@@ -13,7 +13,15 @@ import { ActivatedRoute,Router } from '@angular/router';
 export class RegistroEventoListComponent {
   title = 'Registro Evento';
   value = '';
+  isNewPhotoSelected: boolean = true;
   uploadedFiles: any[] = [];
+  categorias = [
+    { label: 'Nenhum', value: 'NENHUM' },
+    { label: 'Festival', value: 'FESTIVAL' },
+    { label: 'Show', value: 'SHOW' },
+    { label: 'Palestra', value: 'PALESTRA' },
+    { label: 'Musical', value: 'MUSICAL' }
+  ];
   constructor(
     public eventoserviceService: RegistroEventoServiceService,
     private router:Router,
@@ -22,6 +30,16 @@ export class RegistroEventoListComponent {
     private messageService: MessageService
   ) {}
   evento = new Evento();
+
+  onFileSelectClick() {
+    this.isNewPhotoSelected = false; // Reseta isNewPhotoSelected ao clicar no botão de seleção
+  }
+
+  onFileUploadConfirm(event: any) {
+    // Lógica para lidar com a confirmação da imagem
+    this.isNewPhotoSelected = false; // Reseta isNewPhotoSelected quando a imagem é confirmada
+    this.onFileSelected(event);
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params[`id`];
@@ -33,8 +51,8 @@ export class RegistroEventoListComponent {
   carregarDados(id: number) {
     this.eventoserviceService.findById(id)
       .then(evento => {
-        this.evento = evento;
-        const partesData = evento.data_evento.split('/');
+        this.evento = evento[0];
+        const partesData = evento[0].data_evento.split('/');
         const dataFormatada = `${partesData[2]}-${partesData[1]}-${partesData[0]}`; // converte para '2023-11-01'
         this.evento.data_evento = dataFormatada;
       })

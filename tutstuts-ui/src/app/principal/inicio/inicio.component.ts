@@ -2,7 +2,10 @@ import { PrincipalService } from './../principal.service';
 import { Component } from '@angular/core';
 import { CloudinaryService } from '../.././cloudinary.service';
 import { AuthService } from 'src/app/security/auth.service';
-import { Evento } from 'src/app/core/model';
+import { Evento, Curtida } from 'src/app/core/model';
+import { EventoCard } from 'src/app/core/model';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -13,30 +16,87 @@ export class InicioComponent {
   teste: number | null = null;
   currentPage = 1;
   itemsPerPage = 3;
-  allCardDataList: Evento[] = [];
-  paginatedCardDataList: Evento[] = [];
+  allCardDataList: EventoCard[] = [];
+  paginatedCardDataList: EventoCard[] = [];
   loading: boolean = false;
   showLoading: boolean = false;
-  cardDataList: Evento[] = [];
+  cardDataList: EventoCard[] = [];
 
   constructor(private cloudinaryService: CloudinaryService,
      private auth: AuthService,
+     private route:ActivatedRoute,
      private principalService:PrincipalService) {}
 
   ngOnInit() {
-    this.principalService.obterEventos().then((data: Evento[]) => {
-      this.cardDataList = data;
-      this.allCardDataList = [...this.cardDataList];
-      this.loadNextPage();
-      window.onscroll = () => {
-        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-          this.handleScroll();
-        }
-      };
+    const id = this.route.snapshot.params[`id`];
+    if(id != undefined &&id != 'new'){
+      this.principalService.obterEventoPorId(id).then((data: EventoCard[]) => {
+        this.principalService.obterEventosCurtidoPeloUsuario().then((dataCurtida: Curtida[]) => {
+          this.cardDataList = data;
+          this.allCardDataList = [...this.cardDataList];
+  
+          this.allCardDataList.forEach(x => {
+  
+            dataCurtida.forEach(y => {
+              if (x.id == y.evento_id) {
+                x.curtiu = y.is_curtiu;
+              }
+            });
+          });
+          this.loadNextPage();
+          window.onscroll = () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+              this.handleScroll();
+            }
+          };
+        }).catch((e)=> {
+          this.cardDataList = data;
+          this.allCardDataList = [...this.cardDataList];
+          this.loadNextPage();
+          window.onscroll = () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+              this.handleScroll();
+            }
+          };
+        })
+      }).catch((error) => {
+        console.error('Ocorreu um erro ao obter os eventos: ', error);
+      });
+      return;
+    }
+    this.principalService.obterEventos().then((data: EventoCard[]) => {
+      this.principalService.obterEventosCurtidoPeloUsuario().then((dataCurtida: Curtida[]) => {
+        this.cardDataList = data;
+        this.allCardDataList = [...this.cardDataList];
+
+        this.allCardDataList.forEach(x => {
+
+          dataCurtida.forEach(y => {
+            if (x.id == y.evento_id) {
+              x.curtiu = y.is_curtiu;
+            }
+          });
+        });
+        this.loadNextPage();
+        window.onscroll = () => {
+          if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+            this.handleScroll();
+          }
+        };
+      }).catch((e)=> {
+        this.cardDataList = data;
+        this.allCardDataList = [...this.cardDataList];
+        this.loadNextPage();
+        window.onscroll = () => {
+          if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+            this.handleScroll();
+          }
+        };
+      })
     }).catch((error) => {
       console.error('Ocorreu um erro ao obter os eventos: ', error);
     });
-    
+
   }
 
   loadNextPage() {
@@ -51,7 +111,7 @@ export class InicioComponent {
       this.currentPage++;
       this.loadNextPage();
       this.loading = false;
-      this.showLoading = false; 
+      this.showLoading = false;
     }
   }
 
@@ -73,5 +133,5 @@ export class InicioComponent {
       console.error('Erro ao enviar imagem:', error);
     }
   }
-  
+
 }

@@ -4,6 +4,7 @@ import { MessageService } from 'primeng/api';
 import { RegistrarService } from 'src/app/registro/registrar.service';
 import { Usuario } from './../../core/model';
 
+
 @Component({
   selector: 'app-registro-empresa-list',
   templateUrl: './registro-empresa-list.component.html',
@@ -13,11 +14,24 @@ import { Usuario } from './../../core/model';
 export class RegistroEmpresaListComponent {
   title = 'Registro Empresa';
   value = '';
+  categorias = [
+    { label: 'Nenhum', value: 'NENHUM' },
+    { label: 'Festival', value: 'FESTIVAL' },
+    { label: 'Show', value: 'SHOW' },
+    { label: 'Palestra', value: 'PALESTRA' },
+    { label: 'Musical', value: 'MUSICAL' }
+  ];
   constructor(public registroService: RegistrarService,
     private router: Router, public messageService: MessageService) {}
-  registro = new Usuario();
+    registro = new Usuario();
+    exibirErroCnpj: boolean = false;
 
-  enviar() {      
+  enviar() {
+    this.exibirErroCnpj = false;
+    if (!this.validarCnpjFormato(this.registro.cnpj)) {
+      this.exibirErroCnpj = true;
+      return; // Não prosseguir com o registro se o CNPJ não for válido
+    }
     this.registroService.registroempresa(this.registro)
       .then((response) => {
         setTimeout(() => {
@@ -31,9 +45,23 @@ export class RegistroEmpresaListComponent {
             this.router.navigate(['/login']); // Redireciona após o segundo setTimeout
           }, 2200);
         }, 100);
-      });
+      }).catch(e => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro',
+          detail: 'Verifique todas as informações',
+          life: 2000
+        });
+      })
+  }
+  validarCnpjFormato(cnpj: string): boolean {
+    return cnpj.length === 14;
+  }
+  login() {
+    this.router.navigate(['/login']); 
   }
   
+ 
   
   }
 

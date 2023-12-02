@@ -1,0 +1,38 @@
+<p-dialog header="Confirmação" [(visible)]="displayConfirmation" [modal]="true" [responsive]="true" showEffect="fade" [style]="{width: '300px'}">
+    <p>Tem certeza que deseja excluir? Essa ação é permanente.</p>
+    <button pButton type="button" label="Sim" class="p-button-danger" (click)="confirmarExclusao()"></button>
+    <button pButton type="button" label="Não" class="p-button-secondary" (click)="displayConfirmation = false"></button>
+  </p-dialog>
+  
+<div class="main">
+    <div class="container">
+      <p-table [value]="suaListaDeDados" class="centered-table">
+        <ng-template pTemplate="header">
+          <tr>
+            <th class="centered-header">Nome</th>
+            <th class="centered-header">Categoria</th>
+            <th class="centered-header">Data</th>
+            <th class="centered-header">Ações</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dado>
+          <tr>
+            <td>{{ dado.nome }}</td>
+            <td>{{ dado.categoria }}</td>
+            <td>{{ dado.data_evento }}</td>
+            <td class="centered-cell">
+              <button (click)="editarDado(dado.id)" pButton icon="pi pi-pencil" label="Editar" (click)="editarDado(dado)"></button>
+              <span class="button-spacing"></span> 
+              <button  pButton icon="pi pi-trash" label="Excluir" class="p-button-danger" (click)="exibirModalConfirmacao(dado)"></button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="4" style="text-align:center">Sem dados disponíveis</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  

@@ -67,11 +67,10 @@
           tabindex="1"
           class="custom-input"
         >
-          <option value="nenhuma">Nenhuma</option>
-          <option value="festival">Festival</option>
-          <option value="workshop">Workshop</option>
+        <option *ngFor="let option of categorias" [value]="option.value">{{ option.label }}</option>
         </select>
       </div>
+
       <div class="form-group">
         <label for="localidade">Localidade:</label>
         <input
@@ -86,7 +85,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="localidade">Link para compra de ingresssos:</label>
+        <label for="localidade">Link para compra de ingressos:</label>
         <input
           type="text"
           pInputText
@@ -104,12 +103,12 @@
           url="https://www.primefaces.org/cdn/api/upload.php"
           accept="image/png, image/jpeg"
           chooseLabel="Escolher"
-          uploadLabel="Enviar"
           cancelLabel="Cancelar"
+          (onSelect)="onFileUploadConfirm($event)"
           (onUpload)="onFileSelected($event)"
         >
           <ng-template pTemplate="content">
-            <div *ngIf="evento.foto">
+            <div *ngIf="evento.foto && isNewPhotoSelected">
               <img
                 [src]="evento.foto"
                 style="max-width: 100px; max-height: 100px; margin: 10px"

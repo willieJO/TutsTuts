@@ -1,18 +1,14 @@
 <p-toast></p-toast>
-
-
-<div class="center-container">
-    <div class="glass-container ">
-      <div class="p-grid">
-        <div class="col-12 text-center"> <!-- Use a classe "text-center" para centralizar o conteúdo horizontalmente -->
-          <img class="login-image img-fluid" src="https://imgur.com/MfHVuqH.png">
-          <!-- Use a classe "img-fluid" para tornar a imagem responsiva -->
-        </div>
-      </div>  
-    <div class="p-inputgroup">
-        <span class="p-inputgroup-addon custom-addon">
-          <i class="pi pi-envelope"></i>
-        </span>
+<div class="main-login">
+  <div class="container">
+    <!-- Formulário -->
+    <div class="image">
+      <!-- Image -->
+      <img class="login-image" src="https://imgur.com/MfHVuqH.png">
+    </div>
+    <div class="login">
+        <h2>Login</h2><br><br>
+        <div class="p-inputgroup">
         <span class="p-float-label">
           <input
             type="text"
@@ -23,14 +19,12 @@
             tabindex="1"
             class="custom-input"
           />
-          <label for="email">Email</label>
+          <label for="email"><i class="pi pi-envelope"></i>&nbsp; &nbsp;Email</label>
         </span>
       </div>
-    <p></p>
-    <div class="p-inputgroup">
-        <span class="p-inputgroup-addon custom-addon">
-          <i class="iconKey pi pi-key"></i>
-        </span>
+      <p></p>
+      <div class="p-inputgroup">
+
         <span class="p-float-label">
           <input
             #passwordInput
@@ -48,18 +42,14 @@
             (click)="togglePasswordVisibility(passwordInput)"
             style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"
           ></i>
-          <label for="senha">Senha</label>
-
+          <label for="senha"><i class="iconKey pi pi-key"></i>&nbsp; &nbsp;Senha</label>
         </span>
-
       </div>
-
-    <p></p>
-    <button class="botaoEnviar" pButton pRipple label="Entrar" (click)="realizarLogin()"></button>
-    <p></p>
-    
-    <button [routerLink]="['/opcoes']" class="botaoEnviar" pButton pRipple label="Registrar" ></button>
-
+      <p></p>
+      <div class="button-group"> <!-- Nova div para conter os botões -->
+        <button class="botaoEnviar" pButton pRipple label="Entrar" (click)="realizarLogin()"></button>
+        <button [routerLink]="['/opcoes']" class="botaoEnviar" pButton pRipple label="Registrar"></button>
+      </div>
+    </div>
   </div>
-
 </div>

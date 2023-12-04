@@ -35,9 +35,9 @@ public interface EventoRepository extends JpaRepository<Evento,Long>{
 			  nativeQuery = true)
 	int ObterQuantidadeDeCurtidasDoEvento(long id);
 	@Query(
-		value = "SELECT Id, Nome, 1 as isEvento, foto FROM Evento\n"
+		value = "SELECT Id, Nome, 1 as isEvento, foto FROM evento\n"
 			  + "Union \n"
-			  + "SELECT Id,Nome, 0 isEvento, foto FROM Usuario;",
+			  + "SELECT Id,Nome, 0 isEvento, foto FROM usuario;",
 			nativeQuery = true)
 	List<BuscaProjection> ObterEventosEUsuariosParaBusca();
 

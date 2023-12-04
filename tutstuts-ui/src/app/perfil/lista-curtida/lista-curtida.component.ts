@@ -52,7 +52,7 @@ export class ListaCurtidaComponent {
             window.onscroll = () => {
               if (
                 window.innerHeight + window.scrollY >=
-                document.body.scrollHeight
+                document.body.scrollHeight -300
               ) {
                 this.handleScroll();
               }
@@ -65,7 +65,7 @@ export class ListaCurtidaComponent {
             window.onscroll = () => {
               if (
                 window.innerHeight + window.scrollY >=
-                document.body.scrollHeight
+                document.body.scrollHeight - 300
               ) {
                 this.handleScroll();
               }

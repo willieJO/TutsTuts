@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SlidebarmobileComponent } from './slidebarmobile/slidebarmobile.component';
+import { ErrorHandlerService } from './error-handler-service.service';
 @NgModule({
   declarations: [
     SlidebarComponent,
@@ -23,6 +24,9 @@ import { SlidebarmobileComponent } from './slidebarmobile/slidebarmobile.compone
   exports: [
     SlidebarComponent,
     SlidebarmobileComponent,
+  ],
+  providers: [
+    ErrorHandlerService
   ]
 })
 export class CoreModule { }

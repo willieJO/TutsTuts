@@ -19,12 +19,14 @@ export class RegistroEventoServiceService {
     evento.data_evento = dataFormatada;
     evento.user.id = this.auth.getUserIdFromToken() ?? 0;
     evento.ativo = 1;
+    const headers = { Authorization: 'Bearer ' + this.auth.getAccessToken() };
     if (evento.id != null && evento.id != 0 ) {
-      return this.http.put(this.atualizarEventoUrl,evento).toPromise();
+      return this.http.put(this.atualizarEventoUrl,evento, {headers}).toPromise();
     }
-    return this.http.post(this.eventosUrl, evento).toPromise();
+    return this.http.post(this.eventosUrl, evento, {headers}).toPromise();
   }
   findById(id:number): Promise<any> {
-    return this.http.get(this.eventoFindUrl + id).toPromise();
+    const headers = { Authorization: 'Bearer ' + this.auth.getAccessToken() };
+    return this.http.get(this.eventoFindUrl + id, {headers}).toPromise();
   }
 }

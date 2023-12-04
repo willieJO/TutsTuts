@@ -37,7 +37,7 @@ export class SlidebarComponent {
     this.router.navigate(['/editarEvento']);
   }
   goToLoginPage() {
-    localStorage.removeItem("token");
+    this.authService.logout();
     localStorage.removeItem("cnpj");
     localStorage.removeItem("user_id");
     this.router.navigate(["/login"])

@@ -79,7 +79,7 @@ export class InicioComponent {
         });
         this.loadNextPage();
         window.onscroll = () => {
-          if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+          if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 300) {
             this.handleScroll();
           }
         };
@@ -88,7 +88,7 @@ export class InicioComponent {
         this.allCardDataList = [...this.cardDataList];
         this.loadNextPage();
         window.onscroll = () => {
-          if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+          if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 300) {
             this.handleScroll();
           }
         };

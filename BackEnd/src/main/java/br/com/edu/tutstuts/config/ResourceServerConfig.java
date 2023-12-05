@@ -22,8 +22,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-			.antMatchers("/users/AdicionarUsuario").permitAll()
-            .antMatchers("/users/AdicionarUsuarioEmpresa").permitAll()
+			.antMatchers("/Usuario/AdicionarUsuario").permitAll()
+            .antMatchers("/Usuario/AdicionarUsuarioEmpresa").permitAll()
             .antMatchers("/tokens/revoke").permitAll()
                 .anyRequest().authenticated()
             .and()

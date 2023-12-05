@@ -11,7 +11,7 @@ export class RegistroserviceService {
   constructor(private http: HttpClient, private auth:AuthService) { }
 
   enviar(exemplo : RegistroUsuario ): Promise<any> {
-    const headers = { Authorization: 'Bearer ' + this.auth.getAccessToken() };
-    return this.http.post(this.pessoasUrl, exemplo, {headers}).toPromise();
+    
+    return this.http.post(this.pessoasUrl, exemplo).toPromise();
   }
 }

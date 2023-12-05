@@ -13,7 +13,7 @@ export class InterceptorhttpService implements HttpInterceptor {
   constructor(private auth: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!req.url.includes('/oauth/token') && !req.url.includes('/users') && this.auth.isInvalidAccessToken()) {
+    if (!req.url.includes('/oauth/token') && !req.url.includes('/Usuario') && this.auth.isInvalidAccessToken()) {
       return from(this.auth.getNewAccessToken())
         .pipe(
           mergeMap(() => {

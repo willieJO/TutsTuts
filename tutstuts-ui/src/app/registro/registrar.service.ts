@@ -17,8 +17,7 @@ export class RegistrarService {
 
 
   registroempresa(registrar: Usuario): Promise<any> {
-    const headers = { Authorization: 'Bearer ' + this.auth.getAccessToken() };
-    return this.http.post(this.empresaUrl, registrar, {headers})
+    return this.http.post(this.empresaUrl, registrar)
       .toPromise();
   }
 }

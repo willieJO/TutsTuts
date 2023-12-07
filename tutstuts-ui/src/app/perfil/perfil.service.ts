@@ -30,7 +30,7 @@ export class PerfilService {
       }),
     };
     if (localStorage.getItem('cnpj') != null) {
-      
+      usuario.cnpj = localStorage.getItem('cnpj') ?? '';
       return this.http
         .put(
           this.baseUrl + `/Usuario/AtualizarEmpresa/${usuario.id}`,

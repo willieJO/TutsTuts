@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   cnpjSubject = new BehaviorSubject<boolean>(this.getCnpjBoolean());
   cnpj$ = this.cnpjSubject.asObservable();
-  private userIdSubject = new BehaviorSubject<number>(parseInt(localStorage.getItem('user_id') || '0'));
+  userIdSubject = new BehaviorSubject<number>(parseInt(localStorage.getItem('user_id') || '0'));
   userId$ = this.userIdSubject.asObservable();
   oauthTokenUrl = 'http://localhost:8080/oauth/token';
   jwtPayload: any;
@@ -61,13 +61,14 @@ export class AuthService {
         console.log(response);
         this.storeToken(response[`access_token`]);
         localStorage.setItem("user_id",this.getUserIdFromToken()?.toString() ?? "0");
+        this.userIdSubject.next(parseInt(localStorage.getItem('user_id') || '0'));
         const newHeader = { Authorization: 'Bearer ' + this.getAccessToken() };
 
         this.http.get(this.obterCnpfUrl + "/" + this.getUserIdFromToken(), {headers:newHeader}).toPromise()
         .then((response: any) => {
           localStorage.setItem('cnpj', response.cnpj);
           this.cnpjSubject.next(this.getCnpjBoolean());
-          this.userIdSubject.next(parseInt(localStorage.getItem('user_id') || '0'));
+          
         });
       })
       .catch(response => {

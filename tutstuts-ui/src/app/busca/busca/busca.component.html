@@ -1,16 +1,40 @@
-<div style="display: flex; justify-content: center; margin-top: 2%; margin-left: 150px;">
-  <div style="position: relative; width: 70%;">
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-left: 150px;
+  "
+>
+  <div style="position: relative; width: 70%">
     <span class="p-fluid">
-      <p-autoComplete [(ngModel)]="nome" [suggestions]="resultadosFiltrados" (completeMethod)="filtrarPessoas($event)"
-        field="nome" (onSelect)="aoSelecionar($event)" [styleClass]="'full-width-auto-complete'"
-        [style]="{'width': '100%'} ">
+      <p-autoComplete
+        [(ngModel)]="nome"
+        [suggestions]="resultadosFiltrados"
+        (completeMethod)="filtrarPessoas($event)"
+        field="nome"
+        (onSelect)="aoSelecionar($event)"
+        [styleClass]="'full-width-auto-complete'"
+        [style]="{ width: '100%' }"
+        placeholder="Pesquisar Evento ou Usuario..."
+      >
         <ng-template let-pessoa pTemplate="item">
-          <img [src]="pessoa.foto" style="width:30px;height:30px;border-radius:50%">
+          <img
+            [src]="pessoa.foto"
+            style="width: 30px; height: 30px; border-radius: 50%"
+          />
           <span>{{ pessoa.nome }}</span>
         </ng-template>
       </p-autoComplete>
-      <span style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%);">
-        <i class="pi pi-search" style="font-size: 1.5em;"></i>
+      <span
+        style="
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          transform: translateY(-50%);
+        "
+      >
+        <i class="pi pi-search" style="font-size: 1.5em"></i>
       </span>
     </span>
   </div>

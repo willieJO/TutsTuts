@@ -26,12 +26,13 @@ export class ChatComponent implements OnInit {
           console.log(userId)
           this.chatService.obterUsuarios().then((e: Usuario[])=>{
             this.users = e.filter(usuario => usuario.id != parseInt(localStorage.getItem("user_id")?? "0"));
+            this.currentUser = parseInt(localStorage.getItem("user_id") ?? "0");
           })
         } catch(e) {
           console.log(e);
         }
       });
-   
+
 
   }
   toggleSidebar() {

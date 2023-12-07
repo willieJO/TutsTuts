@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private cnpjSubject = new BehaviorSubject<boolean>(this.getCnpjBoolean());
+  cnpjSubject = new BehaviorSubject<boolean>(this.getCnpjBoolean());
   cnpj$ = this.cnpjSubject.asObservable();
   private userIdSubject = new BehaviorSubject<number>(parseInt(localStorage.getItem('user_id') || '0'));
   userId$ = this.userIdSubject.asObservable();

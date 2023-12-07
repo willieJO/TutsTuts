@@ -40,6 +40,7 @@ export class SlidebarComponent {
     this.authService.logout();
     localStorage.removeItem("cnpj");
     localStorage.removeItem("user_id");
+    this.authService.cnpjSubject.next(this.authService.getCnpjBoolean());
     this.router.navigate(["/login"])
   }
 }

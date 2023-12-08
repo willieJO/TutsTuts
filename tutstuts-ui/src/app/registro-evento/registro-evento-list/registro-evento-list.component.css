@@ -62,14 +62,14 @@
 /* Estilos do formulário */
 .login {
   flex: 1;
-  padding: 20px;
+  padding: 1em;
   text-align: left;
 }
 
 .login h2 {
   font-size: 45px;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 1em;
   font-family: "Satisfy", cursive;
   color: #ffff; /* Cor do texto (verde) */
   text-shadow: 0 0 10px #0000, 0 0 20px #3bb2cd, 0 0 30px #68cee4; /* Sombra do texto */
@@ -131,6 +131,7 @@
 
 .form-group label {
   font-size: 20px;
+  margin-bottom: 0.5em;
   display: block;
   font-weight: bold;
 }

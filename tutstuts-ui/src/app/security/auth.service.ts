@@ -7,14 +7,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private cnpjSubject = new BehaviorSubject<boolean>(this.getCnpjBoolean());
+  cnpjSubject = new BehaviorSubject<boolean>(this.getCnpjBoolean());
   cnpj$ = this.cnpjSubject.asObservable();
-  private userIdSubject = new BehaviorSubject<number>(parseInt(localStorage.getItem('user_id') || '0'));
+  userIdSubject = new BehaviorSubject<number>(parseInt(localStorage.getItem('user_id') || '0'));
   userId$ = this.userIdSubject.asObservable();
   oauthTokenUrl = 'http://localhost:8080/oauth/token';
   jwtPayload: any;
   obterCnpfUrl = 'http://localhost:8080/Usuario/ObterCnpjEmpresa';
-
+  tokensRevokeUrl = 'http://localhost:8080/tokens/revoke';
   constructor(
     private http: HttpClient,
     private jwtHelper: JwtHelperService
@@ -31,6 +31,23 @@ export class AuthService {
     });
   }
 
+  cleanAccessToken(): void {
+    localStorage.removeItem('token');
+    this.jwtPayload = null;
+  }
+
+  getAccessToken(): string | null {
+    return localStorage.getItem("token");
+  }
+
+  logout(): Promise<any> {
+    return this.http.delete(this.tokensRevokeUrl, { withCredentials: true })
+      .toPromise()
+      .then(() => {
+        this.cleanAccessToken();
+      });
+  }
+
   login(user: string, password: string): Promise<void> {
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/x-www-form-urlencoded')
@@ -38,17 +55,20 @@ export class AuthService {
 
     const body = `username=${user}&password=${password}&grant_type=password`;
 
-    return this.http.post(this.oauthTokenUrl, body, { headers })
+    return this.http.post(this.oauthTokenUrl, body, { headers, withCredentials: true })
       .toPromise()
       .then((response: any) => {
         console.log(response);
         this.storeToken(response[`access_token`]);
         localStorage.setItem("user_id",this.getUserIdFromToken()?.toString() ?? "0");
-        this.http.get(this.obterCnpfUrl + "/" + this.getUserIdFromToken()).toPromise()
+        this.userIdSubject.next(parseInt(localStorage.getItem('user_id') || '0'));
+        const newHeader = { Authorization: 'Bearer ' + this.getAccessToken() };
+
+        this.http.get(this.obterCnpfUrl + "/" + this.getUserIdFromToken(), {headers:newHeader}).toPromise()
         .then((response: any) => {
           localStorage.setItem('cnpj', response.cnpj);
           this.cnpjSubject.next(this.getCnpjBoolean());
-          this.userIdSubject.next(parseInt(localStorage.getItem('user_id') || '0'));
+          
         });
       })
       .catch(response => {
@@ -60,6 +80,35 @@ export class AuthService {
 
         return Promise.reject(response);
       });
+  }
+
+  getNewAccessToken(): Promise<void> {
+    const headers = new HttpHeaders()
+      .append('Content-Type', 'application/x-www-form-urlencoded')
+      .append('Authorization', 'Basic Y2xpZW50OmNsaWVudA==');
+
+    const body = 'grant_type=refresh_token';
+
+    return this.http.post<any>(this.oauthTokenUrl, body,
+        { headers, withCredentials: true })
+      .toPromise()
+      .then((response: any) => {
+        this.storeToken(response[`access_token`]);
+
+        console.log('Novo access token criado!');
+
+        return Promise.resolve();
+      })
+      .catch(response => {
+        console.error('Erro ao renovar token.', response);
+        return Promise.resolve();
+      });
+  }
+
+  isInvalidAccessToken(): boolean {
+    const token = localStorage.getItem('token');
+
+    return !token || this.jwtHelper.isTokenExpired(token);
   }
 
   private storeToken(token: string): void {

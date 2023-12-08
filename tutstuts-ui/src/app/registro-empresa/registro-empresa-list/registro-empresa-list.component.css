@@ -1,16 +1,14 @@
-
 .main-login {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: linear-gradient(90.3deg, #3f044b 50.6%, #2a023f 101.62%);
-
 }
-a{
-  color: #B379DF;
+a {
+  color: #b379df;
 }
-h3{
+h3 {
   text-align: center;
 }
 /* Estilos do contêiner interno */
@@ -26,32 +24,30 @@ h3{
 
   animation: neon-animation 1.3s infinite alternate;
 }
-@media screen and (max-width: 680px){
-  .container{
+@media screen and (max-width: 680px) {
+  .container {
     width: 100%;
     flex-direction: column;
   }
-  .main-login{
+  .main-login {
     background: linear-gradient(180.3deg, #3f044b 50.6%, #2a023f 101.62%);
-
   }
-  .h2{
+  .h2 {
     font-size: 1px;
   }
-  body{
+  body {
     background: linear-gradient(-180.3deg, #3f044b 50.6%, #2a023f 101.62%);
-
   }
-  .login-image{
+  .login-image {
     width: 200px;
     margin-top: 0px;
     height: 200px;
   }
-  .image{
+  .image {
     width: 200px;
     height: 200px;
   }
-  .login{
+  .login {
     margin-top: -80px;
   }
 }
@@ -77,29 +73,29 @@ h3{
 .login h2 {
   font-size: 45px;
   text-align: center;
-  margin-bottom: 5px;
-  font-family: 'Satisfy', cursive;
+  margin-bottom: 0.5em;
+  font-family: "Satisfy", cursive;
   color: #ffff; /* Cor do texto (verde) */
-   text-shadow: 0 0 10px #0000, 0 0 20px #3bb2cd, 0 0 30px #68CEE4; /* Sombra do texto */
-  }
+  text-shadow: 0 0 10px #0000, 0 0 20px #3bb2cd, 0 0 30px #68cee4; /* Sombra do texto */
+}
 
-  /* Animação */
-  @keyframes neon-animation {
-     0% {
-         opacity: 10; /* Opacidade inicial */
-     }
-     100% {
-         opacity: 0.8; /* Opacidade final (diminui) */
-         text-shadow: 0 0 20px #68CEE4, 0 0 40px #68CEE4, 0 0 60px #bd68e4; /* Sombra final (aumenta) */
-     }
+/* Animação */
+@keyframes neon-animation {
+  0% {
+    opacity: 10; /* Opacidade inicial */
   }
+  100% {
+    opacity: 0.8; /* Opacidade final (diminui) */
+    text-shadow: 0 0 20px #68cee4, 0 0 40px #68cee4, 0 0 60px #bd68e4; /* Sombra final (aumenta) */
+  }
+}
 
-  /* Quando o mouse passa por cima */
-  .neon-text:hover {
-     animation: none; /* Remove a animação ao passar o mouse */
-     opacity: 1; /* Restaura a opacidade ao passar o mouse */
-     text-shadow: 0 0 10px #bd68e4, 0 0 20px #68CEE4, 0 0 30px #68CEE4; /* Restaura a sombra ao passar o mouse */
-  }
+/* Quando o mouse passa por cima */
+.neon-text:hover {
+  animation: none; /* Remove a animação ao passar o mouse */
+  opacity: 1; /* Restaura a opacidade ao passar o mouse */
+  text-shadow: 0 0 10px #bd68e4, 0 0 20px #68cee4, 0 0 30px #68cee4; /* Restaura a sombra ao passar o mouse */
+}
 
 .login-image {
   width: 100%;
@@ -107,9 +103,8 @@ h3{
   text-align: center;
   max-width: 100%;
   height: auto;
-  animation: resize-animation  1s infinite alternate;
+  animation: resize-animation 1s infinite alternate;
 }
-
 
 .login-image img {
   max-width: 100%;
@@ -125,11 +120,12 @@ h3{
 
 /* Animação de aumento e diminuição de tamanho */
 @keyframes resize-animation {
-  0%, 100% {
-      transform: scale(1); /* Tamanho normal */
+  0%,
+  100% {
+    transform: scale(1); /* Tamanho normal */
   }
   50% {
-      transform: scale(1.05);
+    transform: scale(1.05);
   }
 }
 .form-group {
@@ -141,27 +137,27 @@ h3{
   font-size: 20px;
   display: block;
   font-weight: bold;
+  margin-bottom: 0.5em;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #B379DF;
+  border: 1px solid #b379df;
   border-radius: 5px;
   background: linear-gradient(90.3deg, #3f044b 0.06%, #370352 101.62%);
   color: white; /* Adicionando cor de texto branco */
 }
-  select option {
-    background-color: #3f044b;
-
-  }
+select option {
+  background-color: #3f044b;
+}
 .btn {
   display: block;
   width: 100%;
   padding: 10px;
   font-size: 20px;
-  background: linear-gradient(90.3deg, #B379DF 0.16%, #68CEE4 101.62%);
+  background: linear-gradient(90.3deg, #b379df 0.16%, #68cee4 101.62%);
   border: none;
   border-radius: 5px;
   cursor: pointer;

@@ -36,6 +36,7 @@ export class SlidebarmobileComponent {
   goToLoginPage() {
     localStorage.removeItem("token");
     localStorage.removeItem("cnpj");
+    this.authService.cnpjSubject.next(this.authService.getCnpjBoolean());
     this.router.navigate(["/login"])
   }
 }

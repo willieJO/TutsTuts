@@ -1,6 +1,8 @@
 .example-card {
   max-width: 700px;
   min-width: 700px;
+  margin-left: -15%;
+  padding-top: 10px;
   width: 100%;
   height: auto;
   background: linear-gradient(90.3deg, #660779 50.6%, #2a023f 101.62%);
@@ -9,6 +11,7 @@
   }
 
   .example-header-image {
+    margin-top: -10px;
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
@@ -16,7 +19,6 @@
       font-size: 35px;
       text-align: left;
       margin-bottom: 5px;
-      margin-left: 10px;
       font-family: 'Satisfy', cursive;
       color: #ffff; /* Cor do texto (verde) */
        text-shadow: 0 0 10px #0000, 0 0 20px #3bb2cd, 0 0 30px #68CEE4; /* Sombra do texto */

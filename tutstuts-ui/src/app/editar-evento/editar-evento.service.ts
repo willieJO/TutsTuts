@@ -10,9 +10,13 @@ export class EditarEventoService {
   constructor(private auth:AuthService, private http: HttpClient) { }
 
   findById(): Promise<any> {
-    return this.http.get(this.eventosUrl + "ObterEventosDesseUsuario/" + this.auth.getUserIdFromToken()).toPromise();
+    const headers = { Authorization: 'Bearer ' + this.auth.getAccessToken() };
+
+    return this.http.get(this.eventosUrl + "ObterEventosDesseUsuario/" + this.auth.getUserIdFromToken(),{headers}).toPromise();
   }
   removeById(id:number) {
-    return this.http.delete(this.eventosUrl + "ExcluirUsuario/" + id ).toPromise();
+    const headers = { Authorization: 'Bearer ' + this.auth.getAccessToken() };
+
+    return this.http.delete(this.eventosUrl + "ExcluirUsuario/" + id, {headers}).toPromise();
   }
 }

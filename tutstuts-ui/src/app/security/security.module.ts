@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorhttpService } from './interceptorhttp.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,12 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
   ],
   providers: [
-    JwtHelperService
+    JwtHelperService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorhttpService,
+      multi: true
+    },
   ]
 })
 export class SecurityModule { }

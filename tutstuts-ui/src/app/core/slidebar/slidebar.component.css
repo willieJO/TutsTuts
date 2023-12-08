@@ -15,7 +15,7 @@
 }
 
 .login-image {
-  width: 150px; /* Ajuste a largura da imagem conforme necessário */
+  width: 90%; /* Ajuste a largura da imagem conforme necessário */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -23,19 +23,24 @@
 }
 
 .mat-list-item {
+
   cursor: pointer;
   color: white; /* Definindo a cor do texto para branco */
 }
 .mat-icon{
   margin-left: 5px;
+  padding-top: 5px;
+  margin-right: 4px;
 }
 .mat-list-item:hover {
   background-color: #e4e4e4; /* Cor de fundo desejada ao passar o mouse sobre os itens do menu */
 }
 
 .logout-container {
+  margin-left: 5px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
   cursor: pointer;
-  display: flex;
   align-items: center;
   color: white; /* Definindo a cor do texto para branco */
 }

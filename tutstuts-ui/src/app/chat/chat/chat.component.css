@@ -4,23 +4,24 @@
     position: fixed;
     bottom: 10px;
     right: 10px;
-    background-color: #000;
-    border: 1px solid #000;
-    border-radius: 5px;
+    background-color: #23002b;
+    border-radius: 10px;
     width: 300px;
     max-height: 500px;
+    box-shadow: 4px 4px 40px #821199;
   }
-  
+
   .chat-header {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Adiciona espaço entre os elementos */
     padding: 10px;
-    background-color: #333;
+    background-color: #660779;
     color: #fff;
     cursor: pointer;
+    border-radius: 10px;
   }
-  
+
   .chat-title {
     font-size: 18px;
   }
@@ -33,7 +34,7 @@
     width: 75px;
     height: 40px;
   }
-  
+
   .user-list {
     padding: 10px;
     display: flex;
@@ -41,21 +42,21 @@
     overflow-y: auto;
     max-height: 400px;
   }
-  
+
   .user {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
     cursor: pointer;
   }
-  
+
   .user-avatar {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     margin-right: 8px;
   }
-  
+
   .overlay {
     position: fixed;
     top: 0;
@@ -67,7 +68,7 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .chat-content {
     position: fixed;
 
@@ -79,50 +80,50 @@
     display:  -moz-stack;
     flex-direction: column;
   }
-  
+
   .chat-header-inner {
     display: flex;
     align-items: center;
   }
-  
+
   .user-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
   }
-  
+
   .user-name {
     font-weight: bold;
     margin-right: auto; /* Move o nome para a direita */
     color: #fff;
   }
-  
+
   .messages-container {
     max-height: 300px;
     overflow-y: auto;
     margin-top: 10px;
   }
-  
+
   .message {
     margin-bottom: 10px;
   }
-  
+
   .message-left {
     text-align: left;
     color: #fff;
   }
-  
+
   .message-right {
     text-align: right;
     color: #fff;
   }
-  
+
   .message-input {
     display: flex;
     margin-top: 20px;
   }
-  
+
   .message-input input {
     flex: 1;
     margin-right: 10px;
@@ -143,12 +144,11 @@
     text-align: left;
     color: #fff;
   }
-  
+
   .info-right {
     text-align: right;
     color: #fff;
   }
-  
+
   /* ... (código anterior) ... */
-  
-  
+
